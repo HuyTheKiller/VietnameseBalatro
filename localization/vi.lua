@@ -3016,6 +3016,80 @@
                     "{C:chips}#1#{} chip thêm"
                 }
             },
+            ----------------------------------------------- Phần dùng cho Steamodded -----------------------------------------------
+            card_x_chips = {
+                text = {
+                    "{X:chips,C:white}X#1#{} chip"
+                }
+            },
+            card_extra_x_chips = {
+                text = {
+                    "{X:chips,C:white}X#1#{} chip thêm"
+                }
+            },
+            card_extra_mult = {
+                text = {
+                    "{C:mult}#1#{} Nhân thêm"
+                }
+            },
+            card_x_mult = {
+                text = {
+                    "{X:mult,C:white}X#1#{} Nhân"
+                }
+            },
+            card_extra_x_mult = {
+                text = {
+                    "{X:mult,C:white}X#1#{} Nhân thêm"
+                }
+            },
+            card_extra_p_dollars = {
+                text = {
+                    "{C:money}#1#{} khi ghi điểm",
+                }
+            },
+            card_extra_h_chips = {
+                text = {
+                    "{C:chips}#1#{} chip khi",
+                    "cầm trong tay",
+                }
+            },
+            card_h_x_chips = {
+                text = {
+                    "{X:chips,C:white}X#1#{} chip khi",
+                    "cầm trong tay",
+                }
+            },
+            card_extra_h_x_chips = {
+                text = {
+                    "{X:chips,C:white}X#1#{} chip thêm",
+                    "khi cầm trong tay",
+                }
+            },
+            card_extra_h_mult = {
+                text = {
+                    "{C:mult}#1#{} Nhân thêm",
+                    "khi cầm trong tay",
+                }
+            },
+            card_h_x_mult = {
+                text = {
+                    "{X:mult,C:white}X#1#{} Nhân khi",
+                    "cầm trong tay",
+                }
+            },
+            card_extra_h_x_mult = {
+                text = {
+                    "{X:mult,C:white}X#1#{} Nhân thêm",
+                    "khi cầm trong tay",
+                }
+            },
+            card_extra_h_dollars = {
+                text = {
+                    "{C:money}#1#{} nếu giữ trong",
+                    "tay ở cuối ván",
+                },
+            },
+            ------------------------------------------------------------------------------------------------------------------------
             remove_negative = {
                 name = "n",
                 text = {
@@ -4251,7 +4325,7 @@
 			b_search_prompt = 'Tìm mod',
 			b_search_button = 'Tìm kiếm',
             b_seeded_unlocks = 'Giống Mở Khoá',
-            b_seeded_unlocks_info = 'Cho phép mở khoá trong trận chơi bằng giống',
+            b_seeded_unlocks_info = 'Cho phép mở khoá và khám phá trong trận chơi bằng giống',
             ml_achievement_settings = {
                 'Tắt',
                 'Bật',
