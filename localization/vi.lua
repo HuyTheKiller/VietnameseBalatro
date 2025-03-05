@@ -2257,7 +2257,7 @@
             m_mult = {
                 name = "Lá Nhân",
                 text = {
-                    "{C:mult}#1#{} Nhân"
+                    SMODS and "{C:mult}#1#{} Nhân" or "{C:mult}+#1#{} Nhân"
                 }
             },
             m_wild = {
@@ -2286,14 +2286,14 @@
             m_stone = {
                 name = "Lá Đá",
                 text = {
-                    "{C:chips}#1#{} Chip",
+                    SMODS and "{C:chips}#1#{} Chip" or "{C:chips}+#1#{} Chip",
                     "không có bậc hay chất"
                 }
             },
             m_gold = {
                 name = "Lá Vàng",
                 text = {
-                    "{C:money}#1#{} nếu lá này",
+                    SMODS and "{C:money}#1#{} nếu lá này" or "{C:money}$#1#{} nếu lá này",
                     "được giữ trong tay",
                     "ở cuối ván"
                 }
@@ -3013,7 +3013,7 @@
             },
             card_extra_chips = {
                 text = {
-                    "{C:chips}#1#{} chip thêm"
+                    SMODS and "{C:chips}#1#{} chip thêm" or "{C:chips}+#1#{} chip thêm"
                 }
             },
             ----------------------------------------------- Phần dùng cho Steamodded -----------------------------------------------
