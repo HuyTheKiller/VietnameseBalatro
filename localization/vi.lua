@@ -4495,6 +4495,14 @@
 			cashout_hidden = '...và thêm #1# mục nữa',
             a_xchips = "X#1# Chip",
             a_xchips_minus = "-X#1# Chip",
+            smods_version_mismatch = {
+                "Phiên bản Steamodded đã thay đổi",
+                "kể từ khi bắt đầu trận này!",
+                "Tiếp tục trận có thể dẫn đến hành vi",
+                "không ngờ đến và gây crash game.",
+                "Phiên bản bắt đầu: #1#",
+                "Phiên bản hiện tại: #2#",
+            },
             ---------------------------------------------- Phần dùng cho JokerDisplay ----------------------------------------------
             ["jdis_odds"] = "#1# trên #2#",
             ------------------------------------------------------------------------------------------------------------------------
