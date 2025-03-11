@@ -3537,12 +3537,7 @@
 
             sleeve_casl_green = {
                 name = "Bọc Lục",
-                text = {
-                    "Ở cuối mỗi Ván:",
-                    "+{C:money}$#1#{s:0.85} mỗi {C:blue}Tay bài{} còn lại",
-                    "+{C:money}$#2#{s:0.85} mỗi {C:red}Lượt bỏ bài{} còn lại",
-                    "Không nhận {C:attention}Lãi"
-                    }
+                text = G.localization.descriptions.Back["b_green"].text
             },
             sleeve_casl_green_alt = {
                 name = "Bọc Lục",
