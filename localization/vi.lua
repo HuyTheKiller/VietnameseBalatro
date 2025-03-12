@@ -761,7 +761,7 @@
                     "Joker này thêm",
                     "{C:chips}+#2#{} Chip mỗi lá {C:attention}2",
                     "đã chơi ghi điểm",
-                    "{C:inactive}(Hiện tại {C:chips}+#1#{C:inactive} Chip)"
+                    "{C:inactive}(Hiện tại là {C:chips}+#1#{C:inactive} Chip)"
                 },
                 unlock = {
                     "Thắng một trận trong {E:1,C:attention}#1#",
