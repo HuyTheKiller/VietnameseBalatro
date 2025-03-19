@@ -2720,7 +2720,7 @@
             bl_flint = {
                 name = "The Flint",
                 text = {
-                    "Chip và hệ số Nhân chuẩn",
+                    "Chip và Nhân chuẩn",
                     "bị cắt đi một nửa"
                 }
             },
