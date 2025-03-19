@@ -4040,6 +4040,30 @@
                 "CẢNH BÁO! Mở khoá toàn bộ Bộ sưu tập",
                 "se vô hiệu hoá cúp cho Hồ sơ này!"
             },
+            ml_buy_and_use_target={
+                "Mua",
+                "và Dùng",
+            },
+            ml_buy_target={
+                "Mua",
+            },
+            ml_controller_required={
+                "Yêu cầu tay cầm để chơi.",
+                "Hãy kết nối tay cầm để tiếp tục.",
+            },
+            ml_offline_message={
+                "Thiết bị này đang ngoại tuyến.",
+                "Bản lưu hiện tại có thể lỗi thời.",
+            },
+            ml_open_target={
+                "Mở",
+            },
+            ml_redeem_target={
+                "Đổi",
+            },
+            ml_sell_target={
+                "Bán",
+            },
             ['$'] = "$",
             k_redeemed_ex = "Đã Quy Đổi!",
             k_duplicated_ex = "Đã Nhân Bản!",
