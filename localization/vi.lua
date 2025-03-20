@@ -252,7 +252,7 @@
                 text = {
                     "Tái kích mọi lá bài",
                     "đã chơi trong {C:attention}tay bài",
-                    "{C:attention}cuối{} của ván"
+                    "{C:attention}cuối cùng{} của ván"
                 }
             },
             j_chaos = {
