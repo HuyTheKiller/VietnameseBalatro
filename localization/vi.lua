@@ -3450,7 +3450,7 @@
                 },
             },
             ---------------------------------------------- Phần dùng cho JokerDisplay -----------------------------------------------
-            ["JokerDisplay"] = {
+            JokerDisplay = {
                 name = "JokerDisplay",
                 text = {
                     "Hiển thị thông tin hữu ích ngay bên dưới lá Joker",
@@ -4140,69 +4140,69 @@
             b_deckskins_hc = 'Màu Tương Phản Cao',
             b_deckskins_def = 'Màu Mặc Định',
             ---------------------------------------------- Phần dùng cho JokerDisplay ----------------------------------------------
-            ["jdis_enabled"] = "Đã kích hoạt",
-			["jdis_hide_by_default"] = "Ẩn mặc định",
-			["jdis_hide_empty"] = "Ẩn trống",
-			["jdis_disable_collapse"] = "Tắt đóng sập",
-			["jdis_disable_perishable"] = "Tắt Ngắn Hạn",
-			["jdis_disable_rental"] = "Tắt Cho Thuê",
-			["jdis_modifiers"] = "Phần Biến Đổi",
-			["jdis_reminders"] = "Ghi Nhớ",
-			["jdis_extras"] = "Thêm",
-			["jdis_default_display"] = "Măc Định",
-			["jdis_small_display"] = "Đóng Sập",
-			["jdis_active"] = "Có hiệu lực!",
-			["jdis_inactive"] = "Không hiệu lực",
-			["jdis_all_suits"] = "Cả 4 chất",
+            jdis_enabled = "Đã kích hoạt",
+			jdis_hide_by_default = "Ẩn mặc định",
+			jdis_hide_empty = "Ẩn trống",
+			jdis_disable_collapse = "Tắt đóng sập",
+			jdis_disable_perishable = "Tắt Ngắn Hạn",
+			jdis_disable_rental = "Tắt Cho Thuê",
+			jdis_modifiers = "Phần Biến Đổi",
+			jdis_reminders = "Ghi Nhớ",
+			jdis_extras = "Thêm",
+			jdis_default_display = "Măc Định",
+			jdis_small_display = "Đóng Sập",
+			jdis_active = "Có hiệu lực!",
+			jdis_inactive = "Không hiệu lực",
+			jdis_all_suits = "Cả 4 chất",
             ------------------------------------------------- Phần dùng cho Galdur -------------------------------------------------
-            ["gald_master"] = "Bật Galdur",
-            ["gald_use_desc"] = {
+            gald_master = "Bật Galdur",
+            gald_use_desc = {
                 "Kích hoạt thiết lập Galdur"    
             },
-            ["gald_anim"] = "Bật hoạt ảnh",
-            ["gald_anim_desc"] = {
+            gald_anim = "Bật hoạt ảnh",
+            gald_anim_desc = {
                 "Kích hoạt hiệu ứng hoạt ảnh cho phần",
                 "xem trước bộ bài và chồng cược"
             },
-            ["gald_reduce"] = "Giảm kích thước bộ bài",
-            ["gald_reduce_desc"] = {
+            gald_reduce = "Giảm kích thước bộ bài",
+            gald_reduce_desc = {
                 "Giảm số lượng lá bài",
                 "trên màn hình"    
             },
-            ["gald_stake_colour"] = "Làm Mờ Cược",
-            ["gald_stake_colour_options"] = {
+            gald_stake_colour = "Làm Mờ Cược",
+            gald_stake_colour_options = {
                 "Làm mờ chưa thắng",    
                 "Làm mờ đã thắng",
             },
-            ["gald_stake_colour_desc"] = {
+            gald_stake_colour_desc = {
                 "Chọn loại cược nào bị làm mờ",
                 "trong màn hình chọn cược"
             },
-            ["gald_stake_select"] = "Chọn Cược",
-            ["gald_stake_select_options"] = {
+            gald_stake_select = "Chọn Cược",
+            gald_stake_select_options = {
                 "Lần trước đó",    
                 "Mở khoá tiếp theo",
                 "Cược Trắng"
             },
-            ["gald_stake_select_desc"] = {
+            gald_stake_select_desc = {
                 "Chọn loại cược nào được bốc",
                 "mặc định trong màn hình chọn cược"
             },
-            ["gald_unlock"] = "Mở khoá toàn bộ cược",
-            ["gald_unlock_desc"] = {
+            gald_unlock = "Mở khoá toàn bộ cược",
+            gald_unlock_desc = {
                 "Cho phép chọn và chơi bất kì loại cược nào"    
             },
-            ["gald_select_deck"] = "Chọn Bộ Bài",
-            ["gald_select_stake"] = "Chọn Cược",
-            ["gald_play"] = "Chơi",
-            ["gald_selected"] = "ĐÃ CHỌN",
-            ["gald_locked"] = "Bị Khoá",
-            ["gald_unlock_1"] = "Thắng bằng bộ bài này ở ",
-            ["gald_unlock_and"] = " và ",
-            ["gald_new_page_error"] = "Lỗi thêm trang",
-            ["gald_quick_start"] = "Trận Trước Đó",
-            ["gald_random_deck"] = "Bộ Bài Ngẫu Nhiên",
-            ["gald_random_stake"] = "Cược Ngẫu Nhiên",
+            gald_select_deck = "Chọn Bộ Bài",
+            gald_select_stake = "Chọn Cược",
+            gald_play = "Chơi",
+            gald_selected = "ĐÃ CHỌN",
+            gald_locked = "Bị Khoá",
+            gald_unlock_1 = "Thắng bằng bộ bài này ở ",
+            gald_unlock_and = " và ",
+            gald_new_page_error = "Lỗi thêm trang",
+            gald_quick_start = "Trận Trước Đó",
+            gald_random_deck = "Bộ Bài Ngẫu Nhiên",
+            gald_random_stake = "Cược Ngẫu Nhiên",
             ----------------------------------------------- Phần dùng cho Incantation -----------------------------------------------
             incant_negatives_only = "Chỉ chồng lá Âm Bản",
             incant_stack_anything = "Cho phép chồng & chia bất kì lá tiêu thụ nào",
@@ -4282,7 +4282,7 @@
                 "Phiên bản hiện tại: #2#",
             },
             ---------------------------------------------- Phần dùng cho JokerDisplay ----------------------------------------------
-            ["jdis_odds"] = "#1# trên #2#",
+            jdis_odds = "#1# trên #2#",
             ------------------------------------------------------------------------------------------------------------------------
         },
         v_text = {
