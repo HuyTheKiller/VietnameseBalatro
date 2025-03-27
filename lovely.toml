@@ -109,6 +109,35 @@ position = "at"
 payload = '''play_area_status_text(localize('k_not_allowed_ex'))'''
 match_indent = true
 
+# Patch to un-hardcode Orbital Tag's Poker Hand levelup effect
+[[patches]]
+[patches.pattern]
+target = "tag.lua"
+pattern = '''handname= self.ability.orbital_hand,'''
+position = "at"
+payload = '''handname = localize(self.ability.orbital_hand, "poker_hands"),'''
+overwrite = true
+match_indent = true
+
+# Patches to un-hardcode "PEEK DECK" text (this has gone unnoticed for so long because I haven't got myself a controller)
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = '''{n=G.UIT.T, config={text = 'PEEK', scale = 0.48, colour = G.C.WHITE, shadow = true}}'''
+position = "at"
+payload = '''{n=G.UIT.T, config={text = localize('k_peek_deck_1'), scale = 0.48, colour = G.C.WHITE, shadow = true}}'''
+overwrite = true
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = '''{n=G.UIT.T, config={text = 'DECK', scale = 0.38, colour = G.C.WHITE, shadow = true}}'''
+position = "at"
+payload = '''{n=G.UIT.T, config={text = localize('k_peek_deck_2'), scale = 0.38, colour = G.C.WHITE, shadow = true}}'''
+overwrite = true
+match_indent = true
+
 # Alternative patch for when SMODS is not installed - VietnameseBalatro injected this way is VERY UNSTABLE, therefore NOT RECOMMENDED
 [[patches]]
 [patches.pattern]

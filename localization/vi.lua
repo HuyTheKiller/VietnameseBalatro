@@ -4224,6 +4224,8 @@
             k_voucher_restock_2 = "BOSS BLIND",
             k_voucher_restock_3 = "ĐỂ THAY MỚI",
             k_cry_voucher_restock_2 = "HAI BOSS BLIND",
+            k_peek_deck_1 = "LIẾC",
+            k_peek_deck_2 = "BỘ BÀI",
         },
         v_dictionary = {
             a_xmult = "X#1# Nhân",
