@@ -2165,7 +2165,7 @@
             c_trance = {
                 name = "Thôi Miên",
                 text = {
-                    "Thêm một {C:blue}Con Dấu Xanh",
+                    "Thêm một {C:blue}Con Dấu Lam",
                     "lên {C:attention}1{} lá đã chọn",
                     "trong tay"
                 }
@@ -3727,7 +3727,7 @@
             polychrome = "Đa Sắc",
             negative = "Âm Bản",
             gold_seal = "Con Dấu Vàng",
-            blue_seal = "Con Dấu Xanh",
+            blue_seal = "Con Dấu Lam",
             red_seal = "Con Dấu Đỏ",
             purple_seal = "Con Dấu Tím",
             locked = "Bị Khoá",
