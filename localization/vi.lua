@@ -3445,8 +3445,8 @@
                    "{s:1.3}được tinh chỉnh lại để hỗ trợ ngôn ngữ này.",
                    " ",
                    "Hiện đang cung cấp bản dịch cho game gốc và các mod sau:",
-                   "CardSleeves, Cryptid, Galdur, Incantation,",
-                   "JokerDisplay, Jokermon, Multiplayer và Ortalab.",
+                   "CardSleeves, Cryptid, Galdur, Incantation, JokerDisplay,",
+                   "Jokermon, Multiplayer, Malverk và Ortalab.",
                 },
             },
             ---------------------------------------------- Phần dùng cho JokerDisplay -----------------------------------------------
@@ -3467,6 +3467,21 @@
             }
             -------------------------------------------------------------------------------------------------------------------------
         },
+        malverk = {
+			config = {
+				text = {
+					'Đang thiết lập #1#'
+				}
+			}
+		},
+		texture_packs = {
+			default = {
+				name = 'Mặc Định',
+				text = {
+					'Skin của game gốc'
+				}
+			}
+		}
     },
     UI = {},
     tutorial = {},
@@ -4208,6 +4223,15 @@
             incant_negatives_only = "Chỉ chồng lá Âm Bản",
             incant_stack_anything = "Cho phép chồng & chia bất kì lá tiêu thụ nào",
 			incant_unsafe_mode = 'Chế độ Không an toàn',
+            ------------------------------------------------- Phần dùng cho Malverk -------------------------------------------------
+            ["b_textures"] = 'Chọn Skin',
+			["b_deck_skins"] = 'Tuỳ Chỉnh Bài',
+			b_apply = 'ÁP DỤNG',
+			b_applied = 'ĐÃ ÁP DỤNG',
+			b_remove = 'LOẠI BỎ',
+			b_change = 'Các thay đổi',
+			malverk_low = 'THẤP NHẤT',
+			malverk_high = 'CAO NHẤT',
             ----------------------------------- Phần dùng cho Nopeus - cần phiên bản đã Việt hoá -----------------------------------
             nopeus_ff = "Siêu Tốc",
             nopeus_popup = "Chữ Lá Bài Nổi Lên",
