@@ -1,4 +1,4 @@
-﻿return {
+﻿return{
     descriptions = {
         Joker = {
             j_joker = {
