@@ -1,4 +1,4 @@
-﻿return{
+﻿do return {
     descriptions = {
         Joker = {
             j_joker = {
@@ -4576,4 +4576,4 @@
             }
         }
     }
-}
+} end
