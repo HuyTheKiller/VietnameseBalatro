@@ -4159,6 +4159,7 @@ return {
             jdis_enabled = "Đã kích hoạt",
 			jdis_hide_by_default = "Ẩn mặc định",
 			jdis_hide_empty = "Ẩn trống",
+            jdis_shift_to_hide = "Shift + Chuột Phải để ẩn",
 			jdis_disable_collapse = "Tắt đóng sập",
 			jdis_disable_perishable = "Tắt Ngắn Hạn",
 			jdis_disable_rental = "Tắt Cho Thuê",
