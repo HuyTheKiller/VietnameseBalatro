@@ -3465,11 +3465,6 @@ return {
 					"Bản dịch tiếng Pháp bởi: {C:green}SDM_0{}",
                 },
             },
-            ------------------------------------------------ Phần dùng cho Talisman -------------------------------------------------
-            Talisman = {
-                name = "Talisman",
-                text = {"Một mod tăng giới hạn điểm của Balatro và bỏ qua hoạt ảnh ghi điểm."},
-            },
             -------------------------------------------------------------------------------------------------------------------------
         },
         malverk = {
@@ -4581,18 +4576,4 @@ return {
             }
         }
     },
-    test = "j",
-    talisman_vanilla = 'Gốc (e308)',
-    talisman_bignum = 'BigNum (ee308)',
-    talisman_omeganum = 'OmegaNum',
-
-    talisman_string_A = 'Chọn tính năng để bật:',
-    talisman_string_B = 'Tắt Hoạt Ảnh Ghi Điểm',
-    talisman_string_C = 'Giới Hạn Điểm (yêu cầu khởi động lại)',
-    talisman_string_D = 'Đang tính toán...',
-    talisman_string_E = 'Huỷ bỏ',
-    talisman_string_F = 'Phép tính đã thực hiện: ',
-    talisman_string_G = 'Số lá chưa ghi điểm: ',
-    talisman_string_H = 'Phép tính tay bài trước đó: ',
-    talisman_string_I = 'Không rõ',
 }
