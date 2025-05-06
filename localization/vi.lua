@@ -3977,7 +3977,7 @@ return {
             ph_choose_blind_1 = "Chọn Blind",
             ph_choose_blind_2 = "tiếp theo",
             ph_mr_bones = "Được cứu bởi Ông Bones",
-            ph_score_at_least = "Ghi ít nhất",
+            ph_score_at_least = "Đạt ít nhất",
             ph_all_poker_hand = "Tất cả Tay Poker",
             ph_1_level = "+1 Level",
             ph_boss_disabled = "Boss Đã Vô Hiệu Hoá!",
