@@ -172,17 +172,14 @@ payload = '''{n=G.UIT.T, config={text = SMODS and G.VERSION or G.VERSIONVN, scal
 match_indent = true
 
 # Make DebugPlus (if installed) use the modified font
-# [[patches]]
-# [patches.pattern]
-# target = '''=[lovely debugplus.console "debugplus/console.lua"]'''
-# pattern = "local font = love.graphics.getFont()"
-# position = "after"
-# payload = '''
-# if SMODS and SMODS.Languages.vi then
-#     local NFS = require "nativefs"
-#     local viet = SMODS.Languages.vi
-#     local data = assert(NFS.newFileData(viet.mod.path .. 'assets/fonts/' .. viet.font.file), ('Failed to collect file data for font of language %s'):format(viet.key))
-#     font = love.graphics.setNewFont(data, 20)
-# end
-# '''
-# match_indent = true
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS _ "src/game_object.lua"]'''
+pattern = "self.font.FONT = love.graphics.newFont(data, self.font.render_scale)"
+position = "after"
+payload = '''
+if self.key == "vi" then
+    love.graphics.setNewFont(data, G.TILESIZE)
+end
+'''
+match_indent = true
