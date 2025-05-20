@@ -1,4 +1,3 @@
-
 VNBalatro = SMODS.current_mod
 VNBalatro.utf8 = require "utf8"
 VNBalatro.awaiting_dead_key = false
