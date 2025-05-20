@@ -4246,6 +4246,11 @@ return {
             nopeus_nomisc = "Không mục khác",
             nopeus_notext = "Không hiển thị",
             ------------------------------- Nopeus loc is deprecated - made out of personal interest -------------------------------
+            vn_input_method = "Phương thức nhập",
+            vn_input_method_options = {
+                "VNI",
+                "Telex",
+            },
             k_voucher_restock_1 = "ĐÁNH BẠI",
             k_voucher_restock_2 = "BOSS BLIND",
             k_voucher_restock_3 = "ĐỂ THAY MỚI",
