@@ -1,3 +1,3 @@
 return {
-    input_method = 1,
+    input_method = 3,
 }
