@@ -16,10 +16,11 @@ return {
     },
     misc = {
         dictionary = {
-            vn_input_method = "Input method",
+            vn_input_method = "Input method (Disabled outside Vietnamese)",
             vn_input_method_options = {
                 "VNI",
                 "Telex",
+                "Disabled",
             },
             k_voucher_restock_1 = "DEFEAT",
             k_voucher_restock_2 = "BOSS BLIND",

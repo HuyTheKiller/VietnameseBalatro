@@ -4250,6 +4250,7 @@ return {
             vn_input_method_options = {
                 "VNI",
                 "Telex",
+                "Tắt",
             },
             k_voucher_restock_1 = "ĐÁNH BẠI",
             k_voucher_restock_2 = "BOSS BLIND",

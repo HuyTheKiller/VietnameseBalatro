@@ -186,96 +186,110 @@ end
 match_indent = true
 
 # Vietnamese text input support (very experimental)
-# [[patches]]
-# [patches.pattern]
-# target = "functions/button_callbacks.lua"
-# pattern = '''G.CONTROLLER.text_input_id = e.config.id'''
-# position = "after"
-# payload = '''VNBalatro.awaiting_dead_key = false'''
-# match_indent = true
+[[patches]]
+[patches.pattern]
+target = "engine/controller.lua"
+pattern = '''if key == 'enter' then key = 'return' end'''
+position = "after"
+payload = '''if VNBalatro.config.input_method ~= 3 and self.text_input_hook then print(key) end'''
+match_indent = true
 
-# [[patches]]
-# [patches.pattern]
-# target = "functions/button_callbacks.lua"
-# pattern = '''elseif args.key == 'LEFT' then --Move cursor position to the left'''
-# position = "after"
-# payload = '''  VNBalatro.awaiting_dead_key = false'''
-# match_indent = true
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''G.CONTROLLER.text_input_id = e.config.id'''
+position = "after"
+payload = '''VNBalatro.awaiting_dead_key = false'''
+match_indent = true
 
-# [[patches]]
-# [patches.pattern]
-# target = "functions/button_callbacks.lua"
-# pattern = '''elseif args.key == 'RIGHT' then --Move cursor position to the right'''
-# position = "after"
-# payload = '''  VNBalatro.awaiting_dead_key = false'''
-# match_indent = true
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''local corpus = '123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'..(hook.config.ref_table.extended_corpus and " 0!$&()<>?:{}+-=,.[]_" or '')'''
+position = "after"
+payload = '''
+corpus = corpus..'áàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđÁÀẢÃẠĂẮẰẲẴẶẤẦẨẪẬÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴĐ'
+'''
+match_indent = true
 
-# [[patches]]
-# [patches.pattern]
-# target = "functions/button_callbacks.lua"
-# pattern = '''
-# MODIFY_TEXT_INPUT{
-#   letter = args.key,
-#   text_table = text,
-#   pos = text.current_position+1
-# }
-# TRANSPOSE_TEXT_INPUT(1)
-# '''
-# position = "at"
-# payload = '''
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''
+MODIFY_TEXT_INPUT{
+  letter = args.key,
+  text_table = text,
+  pos = text.current_position+1
+}
+TRANSPOSE_TEXT_INPUT(1)
+'''
+position = "at"
+payload = '''
 
-# local worker = text.letters[text.current_position] or ''
-# local isupper = string.isup(worker)
-# local result_key = args.key
-# local modified = false
-# if G.SETTINGS.language == 'vi' then
-#   for k, v in pairs(VNBalatro.accented_table) do
-#     if k == "base" and not VNBalatro.awaiting_dead_key then
-#       for i = 1, #v do
-#         if args.key == string.sub(v, i, i) then
-#           VNBalatro.awaiting_dead_key = true
-#           break
-#         end
-#       end
-#       if VNBalatro.awaiting_dead_key then break end
-#     end
-#     if k ~= "base" and VNBalatro.awaiting_dead_key then
-#       for raw_key, arr in pairs(v) do
-#         local t1 = U_INDEX_ARR(arr[1])
-#         local t2 = U_INDEX_ARR(VNBalatro.max_accented)
-#         if string.lower(worker) == RAW_TO_UNICODE(raw_key) then
-#           for i = 1, #t1-1 do
-#             if args.key == string.sub(arr[1+VNBalatro.config.input_method], i, i) then
-#               result_key = string.sub(arr[1], t1[i], t1[i+1]-1)
-#               modified = true
-#               for j = 1, #t2-1 do
-#                 if result_key == string.sub(VNBalatro.max_accented, t2[j], t2[j+1]-1) then
-#                   VNBalatro.awaiting_dead_key = false
-#                   break
-#                 end
-#               end
-#               MODIFY_TEXT_INPUT{
-#                 letter = '',
-#                 text_table = text,
-#                 pos = text.current_position,
-#                 delete = true
-#               }
-#               TRANSPOSE_TEXT_INPUT(-1)
-#               break
-#             end
-#           end
-#         end
-#       end
-#       if modified then break end
-#     end
-#   end
-# end
-# MODIFY_TEXT_INPUT{
-#   letter = isupper and modified and string.upper(result_key) or result_key,
-#   text_table = text,
-#   pos = text.current_position+1
-# }
-# TRANSPOSE_TEXT_INPUT(1)
+local worker = text.letters[text.current_position] or ''
+local isupper = string.isup(worker)
+local result_key = args.key
+local modified = false
+if G.SETTINGS.language == 'vi' and VNBalatro.config.input_method ~= 3 then
+  for k, v in pairs(VNBalatro.accented_table) do
+    if k == "base" and not VNBalatro.awaiting_dead_key then
+      for i = 1, #v do
+        if args.key == string.sub(v, i, i) then
+          VNBalatro.awaiting_dead_key = true
+          break
+        end
+      end
+      if VNBalatro.awaiting_dead_key then break end
+    end
+    if k ~= "base" and VNBalatro.awaiting_dead_key then
+      for raw_key, arr in pairs(v) do
+        local t = U_CODEPOINT_ARR(arr[1])
+        local maxt = U_CODEPOINT_ARR(VNBalatro.max_accented)
+        if string.lower(worker) == RAW_TO_UNICODE(raw_key) then
+          for i = 1, #t-1 do
+            if args.key == string.sub(arr[1+VNBalatro.config.input_method], i, i) then
+              result_key = VNBalatro.utf8.char(t[i])
+              modified = true
+              for j = 1, #maxt-1 do
+                if result_key == VNBalatro.utf8.char(maxt[i]) then
+                  VNBalatro.awaiting_dead_key = false
+                  break
+                end
+              end
+              MODIFY_TEXT_INPUT{
+                letter = '',
+                text_table = text,
+                pos = text.current_position,
+                delete = true
+              }
+              break
+            end
+          end
+        end
+      end
+      if modified then break end
+    end
+  end
+end
+MODIFY_TEXT_INPUT{
+  letter = isupper and modified and string.upper(result_key) or result_key,
+  text_table = text,
+  pos = text.current_position+(modified and 0 or 1)
+}
+if not modified then
+  TRANSPOSE_TEXT_INPUT(1)
+else
+  -- for _ = 1, VNBalatro.utf8.offset(result_key.." ", -1)-2 do
+  -- MODIFY_TEXT_INPUT{
+  --   letter = '',
+  --   text_table = text,
+  --   pos = text.current_position+1,
+  --   delete = true
+  -- }
+  -- TRANSPOSE_TEXT_INPUT(-1)
+  -- end
+  -- TRANSPOSE_TEXT_INPUT(0)
+end
 
-# '''
-# match_indent = true
+'''
+match_indent = true
