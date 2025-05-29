@@ -12,7 +12,7 @@ Dự án này độc lập với [bản mod của Kanbei](https://github.com/Kan
 
 ## Chuẩn bị Steamodded 1.0.0 (tự chọn nhưng khuyên dùng)
 - Bản 0.9.8 chưa có API cho Ngôn Ngữ. [Bản mod của Kanbei](https://github.com/Kanbei-Kikuchiyo/balatro-vietnamese-translation) sử dụng Lovely thuần tuý và không có hướng dẫn cách cài đặt cho bất kì hệ điều hành nào khác ngoài Windows.
-- Bạn có thể xem hướng dẫn cách cài Steamodded 1.0.0 [tại đây](https://github.com/Steamopollys/Steamodded/wiki).
+- Bạn có thể xem hướng dẫn cách cài Steamodded 1.0.0 [tại đây](https://github.com/Steamodded/smods/wiki).
 
 ## Cài đặt thủ công
 - Chọn 1 trong 2 cách sau:
@@ -49,7 +49,7 @@ Note that this project is independent of [Kanbei's mod](https://github.com/Kanbe
 
 ## Prepare Steamodded 1.0.0 (optional but recommended)
 - 0.9.8 version doesn't have Language API. [Kanbei's mod](https://github.com/Kanbei-Kikuchiyo/balatro-vietnamese-translation) purely relies on Lovely patches and does not provide instructions for any other operating systems outside Windows.
-- You can view the instructions to install Steamodded 1.0.0 [here](https://github.com/Steamopollys/Steamodded/wiki).
+- You can view the instructions to install Steamodded 1.0.0 [here](https://github.com/Steamodded/smods/wiki).
 
 ## Manual installation
 - Chọn one of the following ways:
