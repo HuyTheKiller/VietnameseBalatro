@@ -1,0 +1,113 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# Vietnamese text input support (very experimental)
+[[patches]]
+[patches.pattern]
+target = "engine/controller.lua"
+pattern = '''if key == 'enter' then key = 'return' end'''
+position = "after"
+payload = '''if VNBalatro.config.input_method ~= 3 and self.text_input_hook then print(key) end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''G.CONTROLLER.text_input_id = e.config.id'''
+position = "after"
+payload = '''VNBalatro.awaiting_dead_key = false'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''local corpus = '123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'..(hook.config.ref_table.extended_corpus and " 0!$&()<>?:{}+-=,.[]_" or '')'''
+position = "after"
+payload = '''
+corpus = corpus..'áàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđÁÀẢÃẠĂẮẰẲẴẶẤẦẨẪẬÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴĐ'
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''
+MODIFY_TEXT_INPUT{
+  letter = args.key,
+  text_table = text,
+  pos = text.current_position+1
+}
+TRANSPOSE_TEXT_INPUT(1)
+'''
+position = "at"
+payload = '''
+
+local worker = text.letters[text.current_position] or ''
+local result_key = args.key
+local modified = false
+if G.SETTINGS.language == 'vi' and VNBalatro.config.input_method ~= 3 then
+  for k, v in pairs(VNBalatro.accented_table) do
+    if k == "base" and not VNBalatro.awaiting_dead_key then
+      for i = 1, #v do
+        if args.key == string.sub(v, i, i) then
+          VNBalatro.awaiting_dead_key = true
+          break
+        end
+      end
+      if VNBalatro.awaiting_dead_key then break end
+    end
+    if k ~= "base" and VNBalatro.awaiting_dead_key then
+      local maxt = U_CODEPOINT_ARR(VNBalatro.max_accented)
+      for raw_key, arr in pairs(v) do
+        local t = U_CODEPOINT_ARR(arr[1])
+        if worker == RAW_TO_UNICODE(raw_key) then
+          for i = 1, #t do
+            if args.key == string.sub(arr[1+VNBalatro.config.input_method], i, i) then
+              result_key = VNBalatro.utf8.char(t[i])
+              modified = true
+              for j = 1, #maxt do
+                if result_key == VNBalatro.utf8.char(maxt[i]) then
+                  VNBalatro.awaiting_dead_key = false
+                  break
+                end
+              end
+              MODIFY_TEXT_INPUT{
+                letter = '',
+                text_table = text,
+                pos = text.current_position,
+                delete = true
+              }
+              -- TRANSPOSE_TEXT_INPUT(0)
+              break
+            end
+          end
+        end
+      end
+      if modified then break end
+    end
+  end
+end
+MODIFY_TEXT_INPUT{
+  letter = result_key,
+  text_table = text,
+  pos = text.current_position+(modified and 0 or 1)
+}
+if not modified then
+  TRANSPOSE_TEXT_INPUT(1)
+else
+  -- for _ = 1, VNBalatro.utf8.offset(result_key.." ", -1)-2 do
+  -- MODIFY_TEXT_INPUT{
+  --   letter = '',
+  --   text_table = text,
+  --   pos = text.current_position+1,
+  --   delete = true
+  -- }
+  -- TRANSPOSE_TEXT_INPUT(-1)
+  -- end
+  -- TRANSPOSE_TEXT_INPUT(0)
+end
+
+'''
+match_indent = true
