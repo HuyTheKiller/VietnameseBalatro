@@ -3089,6 +3089,17 @@ return {
                     "tay ở cuối ván",
                 },
             },
+            artist = {
+                text = {
+                    "{C:inactive}Hoạ Sĩ",
+                },
+            },
+            artist_credit = {
+                name = "Hoạ Sĩ",
+                text = {
+                    "{E:1}#1#{}"
+                },
+            },
             ------------------------------------------------------------------------------------------------------------------------
             remove_negative = {
                 name = "n",
@@ -3463,6 +3474,12 @@ return {
 					" ",
 					"Bản dịch tiếng Nga bởi: {C:green}WholeHorse{}",
 					"Bản dịch tiếng Pháp bởi: {C:green}SDM_0{}",
+                    "Bản dịch tiếng Bồ Đào Nha bởi: {C:green}naumazeredo{}",
+					"Bản dịch tiếng Ý bởi: {C:green}fleshness{}",
+					"Bản dịch tiếng Đức bởi: {C:green}GunnableScum{}",
+					"Bản dịch tiếng Trung (Phồn thể) bởi: {C:green}wilfredlam0418{}",
+					"Bản dịch tiếng Hà Lan bởi: {C:green}Soulsphere{}",
+					"Bản dịch tiếng Việt bởi: {C:green}HuyTheKiller{}",
                 },
             },
             -------------------------------------------------------------------------------------------------------------------------
