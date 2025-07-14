@@ -2303,7 +2303,7 @@ return {
                 text = {
                     "Xác suất {C:green}#1# trên #3#",
                     "để được {C:mult}+#2#{} Nhân",
-                    "Xác suất {C:green}#1# trên #5#",
+                    "Xác suất {C:green}#6# trên #5#",
                     "để nhận {C:money}$#4#"
                 }
             }
