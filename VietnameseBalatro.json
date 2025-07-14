@@ -6,7 +6,7 @@
 	"prefix": "vn",
 	"main_file": "VietnameseBalatro.lua",
 	"priority": -1000,
-	"dependencies": ["Steamodded (>=1.0.0~BETA-0301a)"],
+	"dependencies": ["Steamodded (>=1.0.0~BETA-0706a)"],
 	"conflicts": ["CardSleeves (<=1.6.9)"],
 	"version": "1.4.0-pre"
 }
