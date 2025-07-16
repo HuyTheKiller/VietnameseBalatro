@@ -4151,7 +4151,7 @@ return {
             b_unknown = 'Không rõ',
             b_lovely_mod = '(Mod Lovely thuần tuý) ',
             b_priority = 'Ưu Tiên: ',
-            b_by = ' Bởi: ',
+            b_by = 'Bởi: ',
             b_config = "Tuỳ Chọn",
 			b_additions = 'Phần Thêm',
             b_stickers = 'Nhãn',
