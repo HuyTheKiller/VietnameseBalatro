@@ -2055,7 +2055,7 @@ return {
         },
         Spectral = {
             c_familiar = {
-                name = "Quen Thuộc",
+                name = "Sử Ma",
                 text = {
                     "Phá huỷ {C:attention}1{} lá ngẫu nhiên",
                     "trong tay, thêm {C:attention}#1#{} lá",
