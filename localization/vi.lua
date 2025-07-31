@@ -2059,7 +2059,7 @@ return {
                 text = {
                     "Phá huỷ {C:attention}1{} lá ngẫu nhiên",
                     "trong tay, thêm {C:attention}#1#{} lá",
-                    "{C:attention} mặt Cường Hoá",
+                    "{C:attention}mặt Cường Hoá",
                     "ngẫu nhiên vào tay"
                 }
             },
