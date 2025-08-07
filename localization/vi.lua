@@ -4172,6 +4172,7 @@ return {
             b_deckskins_lc = 'Màu Tương Phản Thấp',
             b_deckskins_hc = 'Màu Tương Phản Cao',
             b_deckskins_def = 'Màu Mặc Định',
+            b_limit = 'Tối đa ',
             ---------------------------------------------- Phần dùng cho JokerDisplay ----------------------------------------------
             jdis_enabled = "Đã kích hoạt",
 			jdis_hide_by_default = "Ẩn mặc định",
