@@ -2455,7 +2455,7 @@ return {
                 }
             },
             tag_meteor = {
-                name = "Nhãn Sao Băng",
+                name = "Nhãn Thiên Thạch",
                 text = {
                     "Nhận một",
                     "{C:planet}Gói Thiên Thể Đại{} miễn phí"
