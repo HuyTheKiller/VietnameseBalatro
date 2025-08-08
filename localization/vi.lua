@@ -3089,6 +3089,12 @@ return {
                     "tay ở cuối ván",
                 },
             },
+            card_extra_repetitions = {
+                text = {
+                    "Tái kích lá bài này",
+                    "thêm {C:attention}#1#{} #2#",
+                },
+            },
             artist = {
                 text = {
                     "{C:inactive}Hoạ Sĩ",
@@ -4173,6 +4179,8 @@ return {
             b_deckskins_hc = 'Màu Tương Phản Cao',
             b_deckskins_def = 'Màu Mặc Định',
             b_limit = 'Tối đa ',
+            b_retrigger_single = 'lần',
+            b_retrigger_plural = 'lần',
             ---------------------------------------------- Phần dùng cho JokerDisplay ----------------------------------------------
             jdis_enabled = "Đã kích hoạt",
 			jdis_hide_by_default = "Ẩn mặc định",
