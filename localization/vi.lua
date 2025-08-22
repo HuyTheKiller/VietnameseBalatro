@@ -2246,6 +2246,12 @@ return {
                 text = {
                     "{C:dark_edition}+#1#{} lá giữ trong tay"
                 }
+            },
+            e_negative_generic = {
+                name = "Âm Bản",
+                text = {
+                    "{C:dark_edition}+#1#{} ô khu vực bài"
+                },
             }
             ------------------------------------------------------------------------------------------------------------------------
         },
@@ -3105,6 +3111,24 @@ return {
                 text = {
                     "{E:1}#1#{}"
                 },
+            },
+            generic_card_limit = {
+                name = "Giới Hạn Ô",
+                text = {
+                    '{C:dark_edition}#1#{} ô khu vực bài'
+                }
+            },
+            generic_card_limit_plural = {
+                name = "Giới Hạn Ô",
+                text = {
+                    '{C:dark_edition}#1#{} ô khu vực bài'
+                }
+            },
+            generic_extra_slots = {
+                name = "Ô đã dùng",
+                text = {
+                    'Chiếm {C:dark_edition}#1#{} ô'
+                }
             },
             ------------------------------------------------------------------------------------------------------------------------
             remove_negative = {
