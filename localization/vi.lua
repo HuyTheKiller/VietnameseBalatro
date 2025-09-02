@@ -607,7 +607,7 @@ return {
                     "Khi ván bắt đầu, thêm",
                     "một {C:attention}lá bài{} ngẫu nhiên với",
                     "một {C:attention}con dấu{} ngẫu nhiên",
-                    "vào tay của bạn"
+                    "vào tay"
                 },
                 unlock = {
                     "Sở hữu một",
