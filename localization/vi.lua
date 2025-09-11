@@ -3487,7 +3487,7 @@ return {
                    " ",
                    "Hiện đang cung cấp bản dịch cho game gốc và các mod sau:",
                    "CardSleeves, Cryptid, Galdur, Incantation, JokerDisplay,",
-                   "Jokermon, Multiplayer, Malverk và Ortalab.",
+                   "Pokermon, Multiplayer, Malverk và Ortalab.",
                 },
             },
             ---------------------------------------------- Phần dùng cho JokerDisplay -----------------------------------------------
