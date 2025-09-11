@@ -4297,7 +4297,7 @@ return {
             nopeus_nomisc = "Không mục khác",
             nopeus_notext = "Không hiển thị",
             ------------------------------- Nopeus loc is deprecated - made out of personal interest -------------------------------
-            vn_input_method = "Phương thức nhập",
+            vn_input_method = "Phương thức nhập (không nên dùng)",
             vn_input_method_options = {
                 "VNI",
                 "Telex",
