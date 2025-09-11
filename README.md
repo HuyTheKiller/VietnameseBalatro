@@ -21,13 +21,6 @@ Dự án này độc lập với [bản mod của Kanbei](https://github.com/Kan
 - Giải nén rồi kéo thả thư mục "VietnameseBalatro" (không được phép lồng thư mục trùng tên) vào trong thư mục "Mods". Địa chỉ tương ứng của nó sẽ là:
 **Windows:** `%AppData%/Balatro`; **Mac:** `~/Library/Application Support/Balatro`; **Linux (WINE/Proton):** `~/.local/share/Steam/steamapps/compatdata/2379780/pfx/drive_c/users/steamuser/AppData/Roaming/Balatro`
 
-# Lưu ý khi sử dụng mod
-- Nếu bạn sử dụng Lovely thuần tuý, khi vào game lần kế tiếp sẽ xảy ra crash do lỗi: `attempt to index a nil value`
-- Để hạn chế tối đa điều đó, trả về tiếng Anh trước khi đóng Balatro.
-## Cách giải quyết nếu nó xảy ra:
-- Kéo thư mục "localization" ở ngoài thư mục "Mods" ra khỏi vị trí ban đầu (ở đâu cũng được, đừng để nguyên chỗ cũ)
-- Khởi chạy Balatro từ Steam để tái thiết tuỳ chọn ngôn ngữ
-- Đóng Balatro rồi trả thư mục về chỗ cũ
 # Danh sách tính năng/công việc đang chờ
 - Việt hoá một số mod nổi tiếng
 
@@ -57,12 +50,5 @@ Note that this project is independent of [Kanbei's mod](https://github.com/Kanbe
 - Unzip the archive then drag and drop the "VietnameseBalatro" folder (nested folder with the same name is not allowed) into "Mods". Its respective directory for each OS will be:
 **Windows:** `%AppData%/Balatro`; **Mac:** `~/Library/Application Support/Balatro`; **Linux (WINE/Proton):** `~/.local/share/Steam/steamapps/compatdata/2379780/pfx/drive_c/users/steamuser/AppData/Roaming/Balatro`
 
-# Important notes while using this mod
-- If you're using pure Lovely, you'll encounter a crash the next time you enter the game due to the following error: `attempt to index a nil value`
-- To minimize that, revert to English before closing Balatro.
-## How to solve the problem when it happens:
-- Move the "localization" folder outside "Mods" to somewhere else (anywhere but the initial spot works)
-- Launch Balatro via Steam to reset language option
-- Return folder to its initial position
 # To-do list
 - Add Vietnamese localization to well-known mods
