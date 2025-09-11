@@ -1,0 +1,28 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.module]
+source = "libs/nativefs/nativefs.lua"
+before = "main.lua"
+name = "nativefs"
+
+[[patches]]
+[patches.module]
+source = "modules/utils.lua"
+before = "main.lua"
+name = "VNBalatro/utils"
+
+[[patches]]
+[patches.module]
+source = "localization/en-us.lua"
+before = "main.lua"
+name = "VNBalatro/localization/en-us"
+
+[[patches]]
+[patches.module]
+source = "localization/vi.lua"
+before = "main.lua"
+name = "VNBalatro/localization/vi"

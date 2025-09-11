@@ -4,7 +4,7 @@
 	"author": ["HuyTheKiller"],
 	"description": "Adds Vietnamese as a selectable language for Balatro. Load this mod for more information.",
 	"prefix": "vn",
-	"main_file": "VietnameseBalatro.lua",
+	"main_file": "steamodded.lua",
 	"priority": -1000,
 	"dependencies": ["Steamodded (>=1.0.0~BETA-0706a)"],
 	"conflicts": ["CardSleeves (<=1.6.9)"],

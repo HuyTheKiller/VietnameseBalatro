@@ -65,10 +65,10 @@ if G.SETTINGS.language == 'vi' and VNBalatro.config.input_method ~= 3 then
         if worker == RAW_TO_UNICODE(raw_key) then
           for i = 1, #t do
             if args.key == string.sub(arr[1+VNBalatro.config.input_method], i, i) then
-              result_key = VNBalatro.utf8.char(t[i])
+              result_key = VN_utf8.char(t[i])
               modified = true
               for j = 1, #maxt do
-                if result_key == VNBalatro.utf8.char(maxt[i]) then
+                if result_key == VN_utf8.char(maxt[i]) then
                   VNBalatro.awaiting_dead_key = false
                   break
                 end
@@ -97,7 +97,7 @@ MODIFY_TEXT_INPUT{
 if not modified then
   TRANSPOSE_TEXT_INPUT(1)
 else
-  -- for _ = 1, VNBalatro.utf8.offset(result_key.." ", -1)-2 do
+  -- for _ = 1, VN_utf8.offset(result_key.." ", -1)-2 do
   -- MODIFY_TEXT_INPUT{
   --   letter = '',
   --   text_table = text,
