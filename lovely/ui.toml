@@ -17,7 +17,7 @@ match_indent = true
 target = "globals.lua"
 pattern = "VERSION = VERSION..'-FULL'"
 position = "after"
-payload = "VERSIONVN = VERSION..'-VietnameseBalatro v1.4.0-pre by HuyTheKiller'"
+payload = "VERSIONVN = VERSION..'-VietnameseBalatro v1.4.0 by HuyTheKiller'"
 match_indent = true
 
 [[patches]]
