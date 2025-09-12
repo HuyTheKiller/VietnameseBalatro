@@ -77,7 +77,7 @@ end
 ---@param utf8_string string
 function U_CODEPOINT_ARR(utf8_string)
 	local t = {}
-	for _, c in VNBalatro.utf8.codes(utf8_string, true) do
+	for _, c in VN_utf8.codes(utf8_string, true) do
 		t[#t+1] = c
 	end
 	return t
