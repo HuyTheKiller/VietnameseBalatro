@@ -15,7 +15,7 @@ match_indent = true
 [[patches]]
 [patches.pattern]
 target = "functions/button_callbacks.lua"
-pattern = '''G.CONTROLLER.text_input_id = e.config.id'''
+pattern = '''G.CONTROLLER.text_input_hook = e.children[1].children[1]'''
 position = "after"
 payload = '''VNBalatro.awaiting_dead_key = false'''
 match_indent = true
