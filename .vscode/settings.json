@@ -4,6 +4,7 @@
         "G"
     ],
     "Lua.diagnostics.disable": [
-        "undefined-global"
+        "undefined-global",
+        "lowercase-global"
     ]
 }
