@@ -11,6 +11,12 @@ name = "nativefs"
 
 [[patches]]
 [patches.module]
+source = "libs/json/json.lua"
+before = "main.lua"
+name = "json"
+
+[[patches]]
+[patches.module]
 source = "modules/utils.lua"
 before = "main.lua"
 name = "VNBalatro/utils"
