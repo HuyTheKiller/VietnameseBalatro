@@ -17,6 +17,12 @@ name = "json"
 
 [[patches]]
 [patches.module]
+source = "modules/core.lua"
+before = "main.lua"
+name = "VNBalatro/core"
+
+[[patches]]
+[patches.module]
 source = "modules/utils.lua"
 before = "main.lua"
 name = "VNBalatro/utils"
