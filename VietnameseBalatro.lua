@@ -33,7 +33,7 @@ end
 
 local vn_init_localization = init_localization
 function init_localization()
-	if not VNBalatro.vi_injected and not SMODS then
+	if not SMODS then
 		local en_loc = require("VNBalatro/localization/en-us")
 		VNBalatro.table_merge(G.localization, en_loc)
 		if G.SETTINGS.language == "vi" then
@@ -61,10 +61,11 @@ function Game:set_language()
 		G.FONTS[1].FONT = love.graphics.newFont(data, G.FONTS[1].render_scale)
 		VNBalatro.m6x11plus_injected = true
 	end
-	if G.SETTINGS.language == "vi" and not SMODS then
-		VNBalatro.vi_injected = nil
+	if G.SETTINGS.language == "vi" then
 		VNBalatro.prompted = true
-		init_localization()
+		if not SMODS then
+			init_localization()
+		end
 	end
 end
 
