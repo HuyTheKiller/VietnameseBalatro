@@ -51,6 +51,9 @@ VNBalatro = {
 			self:parse_path()
 			self:parse_version(self.path)
 			self.initialized = true
+            if G.SETTINGS.language == "vi" then
+                self.prompted = true
+            end
 		end
 	end,
 	post_buffer = false,

@@ -63,6 +63,7 @@ function Game:set_language()
 	end
 	if G.SETTINGS.language == "vi" and not SMODS then
 		VNBalatro.vi_injected = nil
+		VNBalatro.prompted = true
 		init_localization()
 	end
 end
@@ -85,7 +86,7 @@ end
 local vn_main_menu_buttons = create_UIBox_main_menu_buttons
 function create_UIBox_main_menu_buttons()
 	local ret = vn_main_menu_buttons()
-	if not SMODS and not G.F_ENGLISH_ONLY and G.SETTINGS.language ~= "vi" then
+	if not SMODS and not G.F_ENGLISH_ONLY and G.SETTINGS.language ~= "vi" and not VNBalatro.prompted then
 		local text = "Chọn tiếng Việt ở đây!"
 		local instruction_node = {n=G.UIT.R, config = {align = "cm", colour = G.C.CLEAR}, nodes={
 			{n=G.UIT.T, config={text = text, scale = 0.25, colour = G.C.UI.TEXT_LIGHT}},
