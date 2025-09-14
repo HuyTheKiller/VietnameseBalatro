@@ -94,7 +94,7 @@ G.FUNCS.text_input_key = function(args)
 end
 
 local vn_init_localization = init_localization
-function init_localization(...)
+function init_localization()
 	if not G.localization.__vnbalatro_injected and not SMODS then
 		local en_loc = require("VNBalatro/localization/en-us")
 		VNBalatro.table_merge(G.localization, en_loc)
@@ -110,7 +110,7 @@ function init_localization(...)
 		end
 		G.localization.__vnbalatro_injected = true
 	end
-	return vn_init_localization(...)
+	return vn_init_localization()
 end
 
 local vn_set_language = Game.set_language
