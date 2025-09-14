@@ -71,7 +71,7 @@ local vn_main_menu = Game.main_menu
 function Game:main_menu(change_context)
     vn_main_menu(self, change_context)
     if not SMODS then
-		local version = VNBalatro.name.." "..VNBalatro.version.." by HuyTheKiller"
+		local version = VNBalatro.name.." v"..VNBalatro.version.." by HuyTheKiller"
 		UIBox{
 			definition =
 			{n=G.UIT.ROOT, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK}, nodes={
@@ -82,15 +82,31 @@ function Game:main_menu(change_context)
 	end
 end
 
-local vn_main_menu_button = create_UIBox_main_menu_buttons
+local vn_main_menu_buttons = create_UIBox_main_menu_buttons
 function create_UIBox_main_menu_buttons()
-	local ret = vn_main_menu_button()
+	local ret = vn_main_menu_buttons()
 	if not SMODS and not G.F_ENGLISH_ONLY and G.SETTINGS.language ~= "vi" then
 		local text = "Chọn tiếng Việt ở đây!"
 		local instruction_node = {n=G.UIT.R, config = {align = "cm", colour = G.C.CLEAR}, nodes={
 			{n=G.UIT.T, config={text = text, scale = 0.25, colour = G.C.UI.TEXT_LIGHT}},
         }}
 		table.insert(ret.nodes[2].nodes, 3, instruction_node)
+	end
+	return ret
+end
+
+local vn_hud = create_UIBox_HUD
+function create_UIBox_HUD()
+	local ret = vn_hud()
+	if G.SETTINGS.language == "vi" then
+		for _, node in ipairs(ret.nodes[1].nodes[1].nodes) do
+			if node.config.id == "row_dollars_chips" then
+				local child_node = node.nodes[1].nodes[1].nodes
+				child_node[1].nodes[1].config.text = localize('k_lower_score')
+				child_node[2].nodes[1].config.text = localize('k_round')
+				break
+			end
+		end
 	end
 	return ret
 end

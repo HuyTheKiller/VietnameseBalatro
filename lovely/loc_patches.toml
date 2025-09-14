@@ -7,9 +7,13 @@ priority = 0
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = '''if not (love.filesystem.read('localization/'..G.SETTINGS.language..'.lua')) or G.F_ENGLISH_ONLY then'''
+pattern = "G.SETTINGS.language = 'en-us'"
 position = "at"
-payload = '''if G.SETTINGS.language ~= "vi" and not (love.filesystem.read('localization/'..G.SETTINGS.language..'.lua')) or G.F_ENGLISH_ONLY then'''
+payload = '''
+if G.SETTINGS.language ~= 'vi' then
+    G.SETTINGS.language = 'en-us'
+end
+'''
 match_indent = true
 
 # Localization support for empty voucher slot text (vanilla)
@@ -69,43 +73,6 @@ target = "functions/button_callbacks.lua"
 pattern = '''elseif G.SETTINGS.language ~= 'en-us' then'''
 position = "at"
 payload = '''elseif false then'''
-match_indent = true
-
-# Patches to fix an issue where the way Balatro handles "Round score" text affects Vietnamese translation
-[[patches]]
-[patches.pattern]
-target = "functions/UI_definitions.lua"
-pattern = '''contents.dollars_chips = {n=G.UIT.R, config={align = "cm",r=0.1, padding = 0,colour = G.C.DYN_UI.BOSS_MAIN, emboss = 0.05, id = 'row_dollars_chips'}, nodes={'''
-position = "before"
-payload = '''if G.SETTINGS.language ~= 'vi' then'''
-match_indent = true
-
-[[patches]]
-[patches.pattern]
-target = "functions/UI_definitions.lua"
-pattern = '''contents.buttons = {'''
-position = "before"
-payload = '''
-else
-  contents.dollars_chips = {n=G.UIT.R, config={align = "cm",r=0.1, padding = 0,colour = G.C.DYN_UI.BOSS_MAIN, emboss = 0.05, id = 'row_dollars_chips'}, nodes={
-    {n=G.UIT.C, config={align = "cm", padding = 0.1}, nodes={
-      {n=G.UIT.C, config={align = "cm", minw = 1.3}, nodes={
-        {n=G.UIT.R, config={align = "cm", padding = 0, maxw = 1.3}, nodes={
-          {n=G.UIT.T, config={text = localize('k_lower_score'), scale = 0.42, colour = G.C.UI.TEXT_LIGHT, shadow = true}}
-        }},
-        {n=G.UIT.R, config={align = "cm", padding = 0, maxw = 1.3}, nodes={
-          {n=G.UIT.T, config={text =localize('k_round'), scale = 0.42, colour = G.C.UI.TEXT_LIGHT, shadow = true}}
-        }}
-      }},
-      {n=G.UIT.C, config={align = "cm", minw = 3.3, minh = 0.7, r = 0.1, colour = G.C.DYN_UI.BOSS_DARK}, nodes={
-        {n=G.UIT.O, config={w=0.5,h=0.5 , object = stake_sprite, hover = true, can_collide = false}},
-        {n=G.UIT.B, config={w=0.1,h=0.1}},
-        {n=G.UIT.T, config={ref_table = G.GAME, ref_value = 'chips_text', lang = G.LANGUAGES['en-us'], scale = 0.85, colour = G.C.WHITE, id = 'chip_UI_count', func = 'chip_UI_set', shadow = true}}
-      }}
-    }}
-  }}
-end
-'''
 match_indent = true
 
 # Patch to un-hardcode "Not Allowed!" text
