@@ -4303,6 +4303,7 @@ return {
                 "Telex",
                 "Tắt",
             },
+            vn_by = "bởi",
             k_voucher_restock_1 = "ĐÁNH BẠI",
             k_voucher_restock_2 = "BOSS BLIND",
             k_voucher_restock_3 = "ĐỂ THAY MỚI",

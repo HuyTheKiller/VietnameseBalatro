@@ -71,7 +71,7 @@ local vn_main_menu = Game.main_menu
 function Game:main_menu(change_context)
     vn_main_menu(self, change_context)
     if not SMODS then
-		local version = VNBalatro.name.." v"..VNBalatro.version.." by HuyTheKiller"
+		local version = VNBalatro.name.." v"..VNBalatro.version.." "..localize("vn_by").." HuyTheKiller"
 		UIBox{
 			definition =
 			{n=G.UIT.ROOT, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK}, nodes={
