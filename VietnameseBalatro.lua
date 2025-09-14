@@ -1,35 +1,6 @@
-VN_utf8 = require "utf8"
-
 require("VNBalatro/core")
 require("VNBalatro/utils")
 VNBalatro:init()
-
----@param raw_key string
-function RAW_TO_UNICODE(raw_key)
-	local key = VNBalatro.conversion[raw_key]
-	if key then return key end
-	return ''
-end
-
----Create an array of utf8 character codepoints
----@param utf8_string string
-function U_CODEPOINT_ARR(utf8_string)
-	local t = {}
-	for _, c in VN_utf8.codes(utf8_string, true) do
-		t[#t+1] = c
-	end
-	return t
-end
-
--- This hook is for debug purposes
-local tik = G.FUNCS.text_input_key
-G.FUNCS.text_input_key = function(args)
-	tik(args)
-	if VNBalatro.config.input_method ~= 3 and G.CONTROLLER.text_input_hook then
-		print(G.CONTROLLER.text_input_hook.config.ref_table.text.letters)
-		print("current position:", G.CONTROLLER.text_input_hook.config.ref_table.text.current_position)
-	end
-end
 
 local vn_init_localization = init_localization
 function init_localization()
@@ -111,17 +82,4 @@ function create_UIBox_HUD()
 		end
 	end
 	return ret
-end
-
-VNBalatro.config_tab = function()
-    return {n = G.UIT.ROOT, config = {r = 0.1, align = "cm", padding = 0.1, colour = G.C.CLEAR}, nodes = {
-        {n=G.UIT.R, config = {align = 'cm'}, nodes={
-			create_option_cycle({label = localize('vn_input_method'), current_option = VNBalatro.config.input_method, options = localize('vn_input_method_options'), ref_table = VNBalatro.config, ref_value = 'input_method', colour = G.C.RED, w = 3.7*0.65/(5/6), h=0.8*0.65/(5/6), text_scale=0.5*0.65/(5/6), scale=5/6, no_pips = true, opt_callback = 'update_input_method'}),
-		}},
-    }}
-end
-
-G.FUNCS.update_input_method = function(e)
-	VNBalatro.config.input_method = e.to_key
-    VNBalatro.save_config()
 end

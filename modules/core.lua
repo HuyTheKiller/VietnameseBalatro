@@ -1,3 +1,5 @@
+VN_utf8 = require "utf8"
+
 VNBalatro = {
 	json = require "json",
 	lovely = require "lovely",
@@ -53,6 +55,10 @@ VNBalatro = {
 			self.initialized = true
 		end
 	end,
+    debug = false,
+    debug_mode = function(self)
+        self.debug = not self.debug
+    end,
 	post_buffer = false,
 	awaiting_dead_key = false,
 	max_accented = "ắằẳẵặấầẩẫậếềểễệíìỉĩịốồổỗộớờởỡợứừửữựýỳỷỹỵđẮẰẲẴẶẤẦẨẪẬẾỀỂỄỆÍÌỈĨỊỐỒỔỖỘỚỜỞỠỢỨỪỬỮỰÝỲỶỸỴĐ",
