@@ -3,6 +3,15 @@ version = "1.0.0"
 dump_lua = true
 priority = 0
 
+# Patch to allow game start up with Vietnamese language
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''if not (love.filesystem.read('localization/'..G.SETTINGS.language..'.lua')) or G.F_ENGLISH_ONLY then'''
+position = "at"
+payload = '''if G.SETTINGS.language ~= "vi" and not (love.filesystem.read('localization/'..G.SETTINGS.language..'.lua')) or G.F_ENGLISH_ONLY then'''
+match_indent = true
+
 # Localization support for empty voucher slot text (vanilla)
 [[patches]]
 [patches.pattern]

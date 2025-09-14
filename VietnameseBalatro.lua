@@ -2,6 +2,14 @@ VN_utf8 = require "utf8"
 VNBalatro = {
 	lovely = require "lovely",
 	nativefs = require "nativefs",
+	name = "VietnameseBalatro",
+	version = "v1.4.0",
+	status = function(self)
+		return {
+			["Vietnamese injected"] = self.vi_injected or false,
+		 	["m6x11plus injected"] = self.m6x11plus_injected or false,
+		}
+	end,
 	post_buffer = false,
 	awaiting_dead_key = false,
 	max_accented = "ắằẳẵặấầẩẫậếềểễệíìỉĩịốồổỗộớờởỡợứừửữựýỳỷỹỵđẮẰẲẴẶẤẦẨẪẬẾỀỂỄỆÍÌỈĨỊỐỒỔỖỘỚỜỞỠỢỨỪỬỮỰÝỲỶỸỴĐ",
@@ -95,7 +103,7 @@ end
 
 local vn_init_localization = init_localization
 function init_localization()
-	if not G.localization.__vnbalatro_injected and not SMODS then
+	if not VNBalatro.vi_injected and not SMODS then
 		local en_loc = require("VNBalatro/localization/en-us")
 		VNBalatro.table_merge(G.localization, en_loc)
 		if G.SETTINGS.language == "vi" then
@@ -108,24 +116,53 @@ function init_localization()
 				VNBalatro.table_merge(G.localization, current_loc)
 			end
 		end
-		G.localization.__vnbalatro_injected = true
+		VNBalatro.vi_injected = true
 	end
 	return vn_init_localization()
 end
 
 local vn_set_language = Game.set_language
 function Game:set_language()
+	G.localization = G.localization or {}
 	vn_set_language(self)
-	if not G.localization.__new_m6x11plus_injected then
+	if not VNBalatro.m6x11plus_injected then
 		local data = VNBalatro.nativefs.newFileData(VNBalatro.path .. '/assets/fonts/m6x11plus.ttf')
 		love.graphics.setNewFont(data, G.TILESIZE)
 		G.FONTS[1].FONT = love.graphics.newFont(data, G.FONTS[1].render_scale)
-		G.localization.__new_m6x11plus_injected = true
+		VNBalatro.m6x11plus_injected = true
 	end
 	if G.SETTINGS.language == "vi" and not SMODS then
-		G.localization.__vnbalatro_injected = nil
+		VNBalatro.vi_injected = nil
 		init_localization()
 	end
+end
+
+local vn_main_menu = Game.main_menu
+function Game:main_menu(change_context)
+    vn_main_menu(self, change_context)
+    if not SMODS then
+		local version = VNBalatro.name.." "..VNBalatro.version.." by HuyTheKiller"
+		UIBox{
+			definition =
+			{n=G.UIT.ROOT, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK}, nodes={
+				{n=G.UIT.T, config={text = version, scale = 0.3, colour = G.C.UI.TEXT_LIGHT}}
+			}},
+			config = {align="tri", offset = {x=0,y=0.3}, major = G.ROOM_ATTACH, bond = 'Weak'}
+		}
+	end
+end
+
+local vn_main_menu_button = create_UIBox_main_menu_buttons
+function create_UIBox_main_menu_buttons()
+	local ret = vn_main_menu_button()
+	if not SMODS and not G.F_ENGLISH_ONLY and G.SETTINGS.language ~= "vi" then
+		local text = "Chọn tiếng Việt ở đây!"
+		local instruction_node = {n=G.UIT.R, config = {align = "cm", colour = G.C.CLEAR}, nodes={
+			{n=G.UIT.T, config={text = text, scale = 0.25, colour = G.C.UI.TEXT_LIGHT}},
+        }}
+		table.insert(ret.nodes[2].nodes, 3, instruction_node)
+	end
+	return ret
 end
 
 VNBalatro.config_tab = function()
