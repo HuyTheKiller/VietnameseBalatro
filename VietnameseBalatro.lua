@@ -26,6 +26,9 @@ local vn_set_language = Game.set_language
 function Game:set_language()
 	G.localization = G.localization or {}
 	vn_set_language(self)
+	if VNBalatro.remove_beta then
+		G.LANGUAGES.vi.beta = false
+	end
 	if not VNBalatro.m6x11plus_injected then
 		local data = VNBalatro.nativefs.newFileData(VNBalatro.path .. '/assets/fonts/m6x11plus.ttf')
 		love.graphics.setNewFont(data, G.TILESIZE)

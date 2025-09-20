@@ -36,6 +36,11 @@ VNBalatro = {
             end
         end
 	end,
+	mobile_compat = function(self)
+		if love.system.getOS() == 'Android' or love.system.getOS() == 'iOS' then
+			self.remove_beta = true
+		end
+	end,
 	status = function(self)
 		if self.initialized then
 			return {
@@ -52,6 +57,7 @@ VNBalatro = {
 		if not self.initialized then
 			self:parse_path()
 			self:parse_version(self.path)
+			self:mobile_compat()
 			self.initialized = true
 		end
 	end,
