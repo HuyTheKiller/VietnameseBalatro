@@ -2583,7 +2583,7 @@ return {
             bl_wheel = {
                 name = "The Wheel",
                 text = {
-                    "#1# trên 7 lá bài",
+                    SMODS and "#1# trên 7 lá bài" or " trên 7 lá bài",
                     "bị bốc sấp"
                 }
             },
