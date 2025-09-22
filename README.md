@@ -1,5 +1,6 @@
 **🇬🇧 English below [↓](https://github.com/HuyTheKiller/VietnameseBalatro?tab=readme-ov-file#vietnamese-balatro-)**
 # Balatro Tiếng Việt 🇻🇳
+![Màn hình Menu](https://raw.githubusercontent.com/HuyTheKiller/VietnameseBalatro/refs/heads/main/assets/Menu.png)
 
 Đây là một bản mod cài tiếng Việt vào Balatro.
 Dự án này độc lập với [bản mod của Kanbei](https://github.com/Kanbei-Kikuchiyo/balatro-vietnamese-translation), với điểm nhấn nằm ở việc nó sử dụng font chữ bạn vẫn thường thấy khi dùng tiếng Anh, cũng như được tích hợp sẵn tính năng của [LocFixer](https://github.com/HuyTheKiller/LocFixer).
