@@ -3101,6 +3101,94 @@ return {
                     "thêm {C:attention}#1#{} #2#",
                 },
             },
+            card_score = {
+                text = {
+                    "{C:purple}#1#{} Điểm",
+                },
+            },
+            card_h_score = {
+                text = {
+                    "{C:purple}#1#{} Điểm khi",
+                    "cầm trong tay",
+                },
+            },
+            card_x_score = {
+                text = {
+                    "{X:purple,C:white}X#1#{} Điểm",
+                },
+            },
+            card_h_x_score = {
+                text = {
+                    "{X:purple,C:white}X#1#{} Điểm khi",
+                    "cầm trong tay",
+                },
+            },
+            card_extra_score = {
+                text = {
+                    "{C:purple}#1#{} Điểm thêm",
+                },
+            },
+            card_extra_h_score = {
+                text = {
+                    "{C:purple}#1#{} Điểm thêm",
+                    "khi cầm trong tay",
+                },
+            },
+            card_extra_x_score = {
+                text = {
+                    "{X:purple,C:white}X#1#{} Điểm thêm",
+                },
+            },
+            card_extra_h_x_score = {
+                text = {
+                    "{X:purple,C:white}X#1#{} Điểm thêm",
+                    "khi cầm trong tay",
+                },
+            },
+            card_blind_size = {
+                text = {
+                    "{C:blind}#1#{} Điểm Blind",
+                },
+            },
+            card_h_blind_size = {
+                text = {
+                    "{C:blind}#1#{} Điểm Blind",
+                    "khi cầm trong tay",
+                },
+            },
+            card_x_blind_size = {
+                text = {
+                    "{X:blind,C:white}X#1#{} Điểm Blind",
+                },
+            },
+            card_h_x_blind_size = {
+                text = {
+                    "{X:blind,C:white}X#1#{} Điểm Blind",
+                    "khi cầm trong tay",
+                },
+            },
+            card_extra_blind_size = {
+                text = {
+                    "{C:blind}#1#{} Điểm Blind thêm",
+                },
+            },
+            card_extra_h_blind_size = {
+                text = {
+                    "{C:blind}#1#{} Điểm Blind thêm",
+                    "khi cầm trong tay",
+                },
+            },
+            card_extra_x_blind_size = {
+                text = {
+                    "{X:blind,C:white}X#1#{} Điểm Blind thêm",
+                },
+            },
+            card_extra_h_x_blind_size = {
+                text = {
+                    "{X:blind,C:white}X#1#{} Điểm Blind thêm",
+                    "khi cầm trong tay",
+                },
+            },
             artist = {
                 text = {
                     "{C:inactive}Hoạ Sĩ",
@@ -3124,10 +3212,33 @@ return {
                     '{C:dark_edition}#1#{} ô khu vực bài'
                 }
             },
+            generic_card_limit_pc = {
+                name = "Ô trong tay",
+                text = {
+                    '{C:dark_edition}#1#{} lá giữ trong tay'
+                }
+            },
+            generic_card_limit_pc_plural = {
+                name = "Ô trong tay",
+                text = {
+                    '{C:dark_edition}#1#{} lá giữ trong tay'
+                }
+            },
             generic_extra_slots = {
                 name = "Ô đã dùng",
                 text = {
                     'Chiếm {C:dark_edition}#1#{} ô'
+                }
+            },
+            generic_extra_slots_pc = {
+                name = "Ô trong tay",
+                text = {
+                    'Chiếm {C:dark_edition}#1#{} ô trong tay'
+                }
+            },
+            card_chips_minus = {
+                text = {
+                    '{C:chips}#1#{} chip'
                 }
             },
             ------------------------------------------------------------------------------------------------------------------------
@@ -4205,6 +4316,7 @@ return {
             b_limit = 'Tối đa ',
             b_retrigger_single = 'lần',
             b_retrigger_plural = 'lần',
+            k_enhanced = 'Cường Hoá',
             ---------------------------------------------- Phần dùng cho JokerDisplay ----------------------------------------------
             jdis_enabled = "Đã kích hoạt",
 			jdis_hide_by_default = "Ẩn mặc định",
@@ -4359,6 +4471,12 @@ return {
 			cashout_hidden = '...và thêm #1# mục nữa',
             a_xchips = "X#1# Chip",
             a_xchips_minus = "-X#1# Chip",
+            a_score="#1# Điểm",
+            a_xscore="X#1# Điểm",
+            a_xscore_minus="-X#1# Điểm",
+            a_blind_size="#1# Điểm Blind",
+            a_xblind_size="X#1# Điểm Blind",
+            a_xblind_size_minus="-X#1# Điểm Blind",
             smods_version_mismatch = {
                 "Phiên bản Steamodded đã thay đổi",
                 "kể từ khi bắt đầu trận này!",
