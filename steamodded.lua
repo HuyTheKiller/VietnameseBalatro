@@ -1,9 +1,11 @@
-SMODS.Atlas({
-    key = "modicon",
-    path = "icon.png",
-    px = 32,
-    py = 32
-})
+if not SMODS.Atlases.vn_modicon then
+    SMODS.Atlas({
+        key = "modicon",
+        path = "icon.png",
+        px = 32,
+        py = 32
+    })
+end
 
 SMODS.Language({
     key = "vi",
