@@ -3932,8 +3932,8 @@ return {
             b_start_new_run = "Trận Mới",
             b_main_menu = "Menu Chính",
             b_collection = "Bộ Sưu Tập",
-            b_seed = "Giống",
-            b_copy_seed = "Sao Chép Giống",
+            b_seed = "Seed",
+            b_copy_seed = "Sao Chép Seed",
             b_copy = "Sao Chép",
             b_credits = "Danh Đề",
             b_stats = "Thống Kê",
@@ -4014,7 +4014,7 @@ return {
             k_active = "có hiệu lực",
             k_round = "Ván",
             k_ante = "Ante",
-            k_seed = "Giống",
+            k_seed = "Seed",
             k_reroll = "Gieo lại",
             k_mult = "Nhân",
             k_rank = "Bậc",
@@ -4084,8 +4084,8 @@ return {
             k_other = "Khác",
             k_money = "Tiền",
             k_best_hand = "Tay Tốt Nhất",
-            k_seeded_run = "Trận Chơi Bằng Giống",
-            k_enter_seed = "Nhập Giống",
+            k_seeded_run = "Trận Dùng Seed",
+            k_enter_seed = "Nhập Seed",
             k_enter_name = "Nhập Tên",
             k_lvl = "lv.",
             k_skipped_cap = "ĐÃ BỎ QUA",
@@ -4203,7 +4203,7 @@ return {
             },
             ml_paste_seed = {
                 "Dán",
-                "Giống"
+                "Seed"
             },
             ml_disabled_seed = {
                 "Toàn bộ Mở Khoá và Khám",
@@ -4303,8 +4303,8 @@ return {
             b_browse = 'Duyệt',
 			b_search_prompt = 'Tìm mod',
 			b_search_button = 'Tìm kiếm',
-            b_seeded_unlocks = 'Giống Mở Khoá',
-            b_seeded_unlocks_info = 'Cho phép mở khoá và khám phá trong trận chơi bằng giống',
+            b_seeded_unlocks = 'Seed Mở Khoá',
+            b_seeded_unlocks_info = 'Cho phép mở khoá và khám phá trong trận chơi bằng seed',
             ml_achievement_settings = {
                 'Tắt',
                 'Bật',
@@ -4531,7 +4531,7 @@ return {
                 "{E:1,s:1.2,C:red}Thử Thách Hằng Ngày!"
             },
             ch_c_set_seed = {
-                "1 lần chơi với Giống đã cài: {C:inactive}{Hidden}"
+                "1 lần chơi với Seed đã cài: {C:inactive}{Hidden}"
             },
             ch_c_chips_dollar_cap = {
                 "{C:blue}Chip{} không thể vượt quá {C:money}${} hiện có"
