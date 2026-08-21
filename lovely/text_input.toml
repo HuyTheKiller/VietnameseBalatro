@@ -9,7 +9,7 @@ priority = 0
 target = "engine/controller.lua"
 pattern = '''if key == 'enter' then key = 'return' end'''
 position = "after"
-payload = '''if VNBalatro.config.input_method ~= 3 and self.text_input_hook then print(key) end'''
+payload = '''if VNBalatro.config.input_method ~= 3 and VNBalatro.debug and self.text_input_hook then print(key) end'''
 match_indent = true
 
 [[patches]]
@@ -26,7 +26,9 @@ target = "functions/button_callbacks.lua"
 pattern = '''local corpus = '123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'..(hook.config.ref_table.extended_corpus and " 0!$&()<>?:{}+-=,.[]_" or '')'''
 position = "after"
 payload = '''
-corpus = corpus..'áàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđÁÀẢÃẠĂẮẰẲẴẶẤẦẨẪẬÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴĐ'
+if G.SETTINGS.language == 'vi' and VNBalatro.config.input_method ~= 3 then
+  corpus = corpus..'áàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđÁÀẢÃẠĂẮẰẲẴẶẤẦẨẪẬÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴĐ'
+end
 '''
 match_indent = true
 
@@ -34,80 +36,108 @@ match_indent = true
 [patches.pattern]
 target = "functions/button_callbacks.lua"
 pattern = '''
-MODIFY_TEXT_INPUT{
-  letter = args.key,
-  text_table = text,
-  pos = text.current_position+1
-}
-TRANSPOSE_TEXT_INPUT(1)
+elseif hook_config.max_length > string.len(text.ref_table[text.ref_value]) and
+      (string.len(args.key) == 1) and
+      string.find( corpus,  args.key , 1, true) then --check to make sure the key is in the valid corpus, add it to the string
+  MODIFY_TEXT_INPUT{
+    letter = args.key,
+    text_table = text,
+    pos = text.current_position+1
+  }
+  TRANSPOSE_TEXT_INPUT(1)
+end
 '''
 position = "at"
 payload = '''
-
-local worker = text.letters[text.current_position] or ''
-local result_key = args.key
-local modified = false
-if G.SETTINGS.language == 'vi' and VNBalatro.config.input_method ~= 3 then
-  for k, v in pairs(VNBalatro.accented_table) do
-    if k == "base" and not VNBalatro.awaiting_dead_key then
-      for i = 1, #v do
-        if args.key == string.sub(v, i, i) then
-          VNBalatro.awaiting_dead_key = true
-          break
+elseif (hook_config.max_length > VN_utf8.len(text.ref_table[text.ref_value]) or VNBalatro.awaiting_dead_key) and
+      (VN_utf8.len(args.key) == 1) and
+      string.find( corpus,  args.key , 1, true) then --check to make sure the key is in the valid corpus, add it to the string
+  local worker = text.letters[text.current_position] or ''
+  local result_key = args.key
+  local modified = false
+  if G.SETTINGS.language == 'vi' and VNBalatro.config.input_method ~= 3 then
+    for k, v in pairs(VNBalatro.accented_table) do
+      if k == "base" and not VNBalatro.awaiting_dead_key then
+        for i = 1, #v do
+          if args.key == string.sub(v, i, i) then
+            VNBalatro.awaiting_dead_key = true
+            break
+          end
         end
+        if VNBalatro.awaiting_dead_key then break end
       end
-      if VNBalatro.awaiting_dead_key then break end
-    end
-    if k ~= "base" and VNBalatro.awaiting_dead_key then
-      local maxt = U_CODEPOINT_ARR(VNBalatro.max_accented)
-      for raw_key, arr in pairs(v) do
-        local t = U_CODEPOINT_ARR(arr[1])
-        if worker == RAW_TO_UNICODE(raw_key) then
-          for i = 1, #t do
-            if args.key == string.sub(arr[1+VNBalatro.config.input_method], i, i) then
-              result_key = VN_utf8.char(t[i])
-              modified = true
-              for j = 1, #maxt do
-                if result_key == VN_utf8.char(maxt[i]) then
-                  VNBalatro.awaiting_dead_key = false
-                  break
+      if k ~= "base" and VNBalatro.awaiting_dead_key then
+        local maxt = U_CODEPOINT_ARR(VNBalatro.max_accented)
+        for raw_key, arr in pairs(v) do
+          local t = U_CODEPOINT_ARR(arr[1])
+          if worker == RAW_TO_UNICODE(raw_key) then
+            for i = 1, #t do
+              if args.key == string.sub(arr[1+VNBalatro.config.input_method], i, i) then
+                result_key = VN_utf8.char(t[i])
+                modified = true
+                for j = 1, #maxt do
+                  if result_key == VN_utf8.char(maxt[i]) then
+                    VNBalatro.awaiting_dead_key = false
+                    break
+                  end
                 end
+                MODIFY_TEXT_INPUT{
+                  letter = '',
+                  text_table = text,
+                  pos = text.current_position,
+                  delete = true
+                }
+                break
               end
-              MODIFY_TEXT_INPUT{
-                letter = '',
-                text_table = text,
-                pos = text.current_position,
-                delete = true
-              }
-              -- TRANSPOSE_TEXT_INPUT(0)
-              break
             end
           end
         end
+        if modified then break end
       end
-      if modified then break end
     end
   end
+  if hook_config.max_length > VN_utf8.len(text.ref_table[text.ref_value]) or modified then
+    MODIFY_TEXT_INPUT{
+      letter = result_key,
+      text_table = text,
+      pos = text.current_position+(modified and 0 or 1)
+    }
+  end
+  if not modified then
+    TRANSPOSE_TEXT_INPUT(1)
+  end
 end
-MODIFY_TEXT_INPUT{
-  letter = result_key,
-  text_table = text,
-  pos = text.current_position+(modified and 0 or 1)
-}
-if not modified then
-  TRANSPOSE_TEXT_INPUT(1)
-else
-  -- for _ = 1, VN_utf8.offset(result_key.." ", -1)-2 do
-  -- MODIFY_TEXT_INPUT{
-  --   letter = '',
-  --   text_table = text,
-  --   pos = text.current_position+1,
-  --   delete = true
-  -- }
-  -- TRANSPOSE_TEXT_INPUT(-1)
-  -- end
-  -- TRANSPOSE_TEXT_INPUT(0)
-end
-
 '''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''functions/button_callbacks.lua'''
+pattern = '''if string.len(text.ref_table[text.ref_value]) > 0 and args.key == 'BACKSPACE' then --If not at start, remove preceding letter'''
+position = "at"
+payload = '''if VN_utf8.len(text.ref_table[text.ref_value]) > 0 and args.key == 'BACKSPACE' then --If not at start, remove preceding letter'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''functions/button_callbacks.lua'''
+pattern = '''elseif string.len(text.ref_table[text.ref_value]) > 0 and args.key == 'DELETE' then --if not at end, remove following letter'''
+position = "at"
+payload = '''elseif VN_utf8.len(text.ref_table[text.ref_value]) > 0 and args.key == 'DELETE' then --if not at end, remove following letter'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''functions/button_callbacks.lua'''
+pattern = '''text.current_position = math.min(position_child-1, string.len(text.ref_table[text.ref_value]))'''
+position = "at"
+payload = '''text.current_position = math.min(position_child-1, VN_utf8.len(text.ref_table[text.ref_value]))'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''functions/UI_definitions.lua'''
+pattern = '''text.letters[i] = (args.ref_table[args.ref_value] and (string.sub(args.ref_table[args.ref_value], i, i) or '')) or '''''
+position = "at"
+payload = '''text.letters[i] = (args.ref_table[args.ref_value] and (VN_utf8.char_at(args.ref_table[args.ref_value], i) or '')) or '''''
 match_indent = true

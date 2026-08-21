@@ -2,7 +2,7 @@
 VNBalatro.config_tab = function()
     return {n = G.UIT.ROOT, config = {r = 0.1, align = "cm", padding = 0.1, colour = G.C.CLEAR}, nodes = {
         {n=G.UIT.R, config = {align = 'cm'}, nodes={
-			create_option_cycle({label = localize('vn_input_method'), current_option = VNBalatro.config.input_method, options = localize('vn_input_method_options'), ref_table = VNBalatro.config, ref_value = 'input_method', colour = G.C.RED, w = 3.7*0.65/(5/6), h=0.8*0.65/(5/6), text_scale=0.5*0.65/(5/6), scale=5/6, no_pips = true, opt_callback = 'update_input_method'}),
+			create_option_cycle({label = localize('vn_input_method'), current_option = VNBalatro.config.input_method, options = localize('vn_input_method_options'), ref_table = VNBalatro.config, ref_value = 'input_method', colour = G.C.RED, w = 3.7*0.65/(5/6), h=0.8*0.65/(5/6), text_scale=0.5*0.65/(5/6), scale=5/6, no_pips = true, opt_callback = 'update_input_method', on_demand_tooltip = {text = localize("vn_input_warning")}}),
 		}},
     }}
 end
@@ -20,6 +20,19 @@ G.FUNCS.text_input_key = function(args)
 		print(G.CONTROLLER.text_input_hook.config.ref_table.text.letters)
 		print("current position:", G.CONTROLLER.text_input_hook.config.ref_table.text.current_position)
 	end
+end
+
+function VN_utf8.char_at(text, i)
+	if not text or not i then
+		return nil
+	end
+	local start = VN_utf8.offset(text, i)
+	if not start then
+		return nil
+	end
+
+	local next_pos = VN_utf8.offset(text, i + 1)
+	return text:sub(start, next_pos and next_pos - 1 or -1)
 end
 
 ---@param raw_key string

@@ -16,11 +16,17 @@ return {
     },
     misc = {
         dictionary = {
-            vn_input_method = "Input method (Disabled outside Vietnamese)",
+            vn_input_method = "Input method",
             vn_input_method_options = {
                 "VNI",
                 "Telex",
                 "Disabled",
+            },
+            vn_input_warning = {
+                "Disabled outside Vietnamese. Switch to it first.",
+                "Dead keys only affect preceding character.",
+                "Has conflicts with native Vietnamese input method from",
+                "OS or third-party, please turn it off before using.",
             },
             vn_by = "by",
             k_voucher_restock_1 = "DEFEAT",

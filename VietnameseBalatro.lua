@@ -32,6 +32,15 @@ function Game:set_language()
 	if not VNBalatro.m6x11plus_injected then
 		local data = VNBalatro.nativefs.newFileData(VNBalatro.path .. '/assets/fonts/m6x11plus.ttf')
 		love.graphics.setNewFont(data, G.TILESIZE)
+		--#region DebugPlus tampering :/
+		local love_newFont = love.graphics.newFont
+		function love.graphics.newFont(file, ...)
+			if file == "resources/fonts/m6x11plus.ttf" then
+				file = data
+			end
+			return love_newFont(file, ...)
+		end
+		--#endregion
 		G.FONTS[1].FONT = love.graphics.newFont(data, G.FONTS[1].render_scale)
 		VNBalatro.m6x11plus_injected = true
 	end

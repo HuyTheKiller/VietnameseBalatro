@@ -4425,11 +4425,16 @@ return {
             nopeus_nomisc = "Không mục khác",
             nopeus_notext = "Không hiển thị",
             ------------------------------- Nopeus loc is deprecated - made out of personal interest -------------------------------
-            vn_input_method = "Phương thức nhập (không nên dùng)",
+            vn_input_method = "Phương thức nhập",
             vn_input_method_options = {
                 "VNI",
                 "Telex",
                 "Tắt",
+            },
+            vn_input_warning = {
+                "Phím chết chỉ tác dụng lên kí tự liền trước.",
+                "Sẽ xung đột với trình gõ tiếng Việt của hệ điều hành",
+                "hoặc bên thứ ba, vui lòng tắt nó trước khi sử dụng.",
             },
             vn_by = "bởi",
             k_voucher_restock_1 = "ĐÁNH BẠI",
