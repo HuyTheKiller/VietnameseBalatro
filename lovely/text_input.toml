@@ -141,3 +141,78 @@ pattern = '''text.letters[i] = (args.ref_table[args.ref_value] and (string.sub(a
 position = "at"
 payload = '''text.letters[i] = (args.ref_table[args.ref_value] and (VN_utf8.char_at(args.ref_table[args.ref_value], i) or '')) or '''''
 match_indent = true
+
+# Also patch SMODS (https://github.com/Steamodded/smods/pull/1504)
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS _ "src/ui.lua"]'''
+pattern = '''
+elseif hook_config.max_length > utf8Len(text.ref_table[text.ref_value]) and (utf8Len(args.key) == 1) then --check to make sure the key is in the valid corpus, add it to the string
+    MODIFY_TEXT_INPUT{
+        letter = args.key,
+        text_table = text,
+        pos = text.current_position+1
+    }
+    TRANSPOSE_TEXT_INPUT(1)
+end
+'''
+position = "at"
+payload = '''
+elseif (hook_config.max_length > utf8Len(text.ref_table[text.ref_value]) or VNBalatro.awaiting_dead_key) and (utf8Len(args.key) == 1) then --check to make sure the key is in the valid corpus, add it to the string
+    local worker = text.letters[text.current_position] or ''
+    local result_key = args.key
+    local modified = false
+    if G.SETTINGS.language == 'vi' and VNBalatro.config.input_method ~= 3 then
+        for k, v in pairs(VNBalatro.accented_table) do
+            if k == "base" and not VNBalatro.awaiting_dead_key then
+                for i = 1, #v do
+                    if args.key == string.sub(v, i, i) then
+                        VNBalatro.awaiting_dead_key = true
+                        break
+                    end
+                end
+                if VNBalatro.awaiting_dead_key then break end
+            end
+            if k ~= "base" and VNBalatro.awaiting_dead_key then
+                local maxt = U_CODEPOINT_ARR(VNBalatro.max_accented)
+                for raw_key, arr in pairs(v) do
+                    local t = U_CODEPOINT_ARR(arr[1])
+                    if worker == RAW_TO_UNICODE(raw_key) then
+                        for i = 1, #t do
+                            if args.key == string.sub(arr[1+VNBalatro.config.input_method], i, i) then
+                                result_key = VN_utf8.char(t[i])
+                                modified = true
+                                for j = 1, #maxt do
+                                    if result_key == VN_utf8.char(maxt[i]) then
+                                        VNBalatro.awaiting_dead_key = false
+                                        break
+                                    end
+                                end
+                                MODIFY_TEXT_INPUT{
+                                    letter = '',
+                                    text_table = text,
+                                    pos = text.current_position,
+                                    delete = true
+                                }
+                                break
+                            end
+                        end
+                  end
+              end
+              if modified then break end
+            end
+        end
+    end
+    if hook_config.max_length > utf8Len(text.ref_table[text.ref_value]) or modified then
+        MODIFY_TEXT_INPUT{
+            letter = result_key,
+            text_table = text,
+            pos = text.current_position+(modified and 0 or 1)
+        }
+    end
+    if not modified then
+        TRANSPOSE_TEXT_INPUT(1)
+    end
+end
+'''
+match_indent = true
