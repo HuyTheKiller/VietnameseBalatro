@@ -1,0 +1,19 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# Replace certain string.len usage with respective ones for UTF-8
+[[patches]]
+[patches.regex]
+target = '=[SMODS _ "src/utils/run_select.lua"]'
+pattern = '''string\.len\((.*)\)\/8'''
+position = "at"
+payload = '''VN_utf8.len($1)/8'''
+
+[[patches]]
+[patches.regex]
+target = '=[SMODS galdur "galdur.lua"]'
+pattern = '''string\.len\((.*)\)\/8'''
+position = "at"
+payload = '''VN_utf8.len($1)/8'''
