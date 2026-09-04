@@ -1,6 +1,6 @@
 {
 	"name": "VietnameseBalatro",
-	"version_number": "1.4.1",
+	"version_number": "1.4.2",
 	"website_url": "https://github.com/HuyTheKiller/VietnameseBalatro",
 	"description": "Vietnamese translation for Balatro.",
 	"dependencies": ["Thunderstore-lovely-0.9.0"]

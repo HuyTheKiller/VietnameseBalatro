@@ -9,5 +9,5 @@
 	"priority": -1000,
 	"dependencies": ["Steamodded (>=1.0.0~BETA-0706a)"],
 	"conflicts": ["CardSleeves (<=1.6.9)"],
-	"version": "1.4.1"
+	"version": "1.4.2"
 }
