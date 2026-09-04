@@ -21,20 +21,20 @@ VNBalatro = {
 		self.path = path
 	end,
 	parse_version = function(self, directory)
-        if self.version == "" then
-            for _, filename in ipairs(self.nativefs.getDirectoryItems(directory)) do
-                local file_path = directory .. "/" .. filename
-                local file_type = self.nativefs.getInfo(file_path).type
-                if file_type == 'directory' or file_type == 'symlink' then
-                elseif filename:lower():match('%.json') then
-                    local json_str = self.nativefs.read(file_path)
-                    local parsed, mod = pcall(self.json.decode, json_str)
-                    if parsed and mod.version then
-                        self.version = mod.version
-                    end
-                end
-            end
-        end
+		if self.version == "" then
+			for _, filename in ipairs(self.nativefs.getDirectoryItems(directory)) do
+				local file_path = directory .. "/" .. filename
+				local file_type = self.nativefs.getInfo(file_path).type
+				if file_type == 'directory' or file_type == 'symlink' then
+				elseif filename:lower():match('%.json') then
+					local json_str = self.nativefs.read(file_path)
+					local parsed, mod = pcall(self.json.decode, json_str)
+					if parsed and mod.version then
+						self.version = mod.version
+					end
+				end
+			end
+		end
 	end,
 	mobile_compat = function(self)
 		if love.system.getOS() == 'Android' or love.system.getOS() == 'iOS' then
@@ -49,11 +49,11 @@ VNBalatro = {
 				["Vietnamese injected"] = self.vi_injected or false,
 				["m6x11plus injected"] = self.m6x11plus_injected or false,
 			}
-        else
-            return "Error: not initialized"
+		else
+			return "Error: not initialized"
 		end
 	end,
-    init = function(self)
+	init = function(self)
 		if not self.initialized then
 			self:parse_path()
 			self:parse_version(self.path)
@@ -61,10 +61,10 @@ VNBalatro = {
 			self.initialized = true
 		end
 	end,
-    debug = false,
-    debug_mode = function(self)
-        self.debug = not self.debug
-    end,
+	debug = false,
+	debug_mode = function(self)
+		self.debug = not self.debug
+	end,
 	post_buffer = false,
 	awaiting_dead_key = false,
 	max_accented = "ắằẳẵặấầẩẫậếềểễệíìỉĩịốồổỗộớờởỡợứừửữựýỳỷỹỵđẮẰẲẴẶẤẦẨẪẬẾỀỂỄỆÍÌỈĨỊỐỒỔỖỘỚỜỞỠỢỨỪỬỮỰÝỲỶỸỴĐ",

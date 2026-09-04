@@ -3526,53 +3526,53 @@ return {
             },
             ----------------------------------------------- Phần dùng cho Steamodded -----------------------------------------------
             load_success = {
-				text = {
-					'Mod đã tải',
-					'{C:green}thành công!'
-				}
-			},
-			load_failure_d = {
-				text = {
-					'Thiếu {C:attention}Mod phụ thuộc!',
-					'#1#',
-				}
-			},
-			load_failure_c = {
-				text = {
-					'Chưa giải quyết {C:attention}xung đột Mod!',
-					'#1#'
-				}
-			},
-			load_failure_d_c = {
-				text = {
-					'Thiếu {C:attention}Mod phụ thuộc!',
-					'#1#',
-					'Chưa giải quyết {C:attention}xung đột Mod!',
-					'#2#'
-				}
-			},
-			load_failure_o = {
-				text = {
-					'Steamodded {C:attention}quá cũ!',
-					'phiên bản từ {C:money}0.9.8{} trở xuống',
-					'không còn được hỗ trợ.'
-				}
-			},
-			load_failure_i = {
-				text = {
-					'{C:attention}Không tương thích!{}',
-					'Cần Steamodded phiên bản #1#,',
-					'nhưng đang dùng #2#.'
-				}
-			},
+                text = {
+                    'Mod đã tải',
+                    '{C:green}thành công!'
+                }
+            },
+            load_failure_d = {
+                text = {
+                    'Thiếu {C:attention}Mod phụ thuộc!',
+                    '#1#',
+                }
+            },
+            load_failure_c = {
+                text = {
+                    'Chưa giải quyết {C:attention}xung đột Mod!',
+                    '#1#'
+                }
+            },
+            load_failure_d_c = {
+                text = {
+                    'Thiếu {C:attention}Mod phụ thuộc!',
+                    '#1#',
+                    'Chưa giải quyết {C:attention}xung đột Mod!',
+                    '#2#'
+                }
+            },
+            load_failure_o = {
+                text = {
+                    'Steamodded {C:attention}quá cũ!',
+                    'phiên bản từ {C:money}0.9.8{} trở xuống',
+                    'không còn được hỗ trợ.'
+                }
+            },
+            load_failure_i = {
+                text = {
+                    '{C:attention}Không tương thích!{}',
+                    'Cần Steamodded phiên bản #1#,',
+                    'nhưng đang dùng #2#.'
+                }
+            },
             load_failure_p = {
-				text = {
-					'{C:attention}Xung đột tiền tố!{}',
-					'Tiền tố của mod này',
-					'bị trùng với 1 mod khác.',
-					'({C:attention}#1#{})'
-				}
-			},
+                text = {
+                    '{C:attention}Xung đột tiền tố!{}',
+                    'Tiền tố của mod này',
+                    'bị trùng với 1 mod khác.',
+                    '({C:attention}#1#{})'
+                }
+            },
             load_failure_m = {
                 text = {
                     '{C:attention}Tệp Chính Không Tìm Thấy!{}',
@@ -3581,7 +3581,7 @@ return {
                     '({C:attention}#1#{})'
                 }
             },
-			load_disabled = {
+            load_disabled = {
                 text = {
                     'Mod này đã',
                     '{C:attention}vô hiệu hoá!{}'
@@ -3606,40 +3606,40 @@ return {
                 name = "JokerDisplay",
                 text = {
                     "Hiển thị thông tin hữu ích ngay bên dưới lá Joker",
-					" ",
+                    " ",
                     "{C:attention}Phím tắt:{}",
                     "{C:blue}Chuột phải hoặc B:{} ẩn/hiện",
                     "{C:blue}Chuột trái hoặc Mũi tên lên:{} đóng sập/mở rộng",
-					" ",
-					"Lời cảm ơn chân thành đến {C:green}Eremel{} và {C:green}OppositeWolf770{}",
-					" ",
-					"Bản dịch tiếng Nga bởi: {C:green}WholeHorse{}",
-					"Bản dịch tiếng Pháp bởi: {C:green}SDM_0{}",
+                    " ",
+                    "Lời cảm ơn chân thành đến {C:green}Eremel{} và {C:green}OppositeWolf770{}",
+                    " ",
+                    "Bản dịch tiếng Nga bởi: {C:green}WholeHorse{}",
+                    "Bản dịch tiếng Pháp bởi: {C:green}SDM_0{}",
                     "Bản dịch tiếng Bồ Đào Nha bởi: {C:green}naumazeredo{}",
-					"Bản dịch tiếng Ý bởi: {C:green}fleshness{}",
-					"Bản dịch tiếng Đức bởi: {C:green}GunnableScum{}",
-					"Bản dịch tiếng Trung (Phồn thể) bởi: {C:green}wilfredlam0418{}",
-					"Bản dịch tiếng Hà Lan bởi: {C:green}Soulsphere{}",
-					"Bản dịch tiếng Việt bởi: {C:green}HuyTheKiller{}",
+                    "Bản dịch tiếng Ý bởi: {C:green}fleshness{}",
+                    "Bản dịch tiếng Đức bởi: {C:green}GunnableScum{}",
+                    "Bản dịch tiếng Trung (Phồn thể) bởi: {C:green}wilfredlam0418{}",
+                    "Bản dịch tiếng Hà Lan bởi: {C:green}Soulsphere{}",
+                    "Bản dịch tiếng Việt bởi: {C:green}HuyTheKiller{}",
                 },
             },
             -------------------------------------------------------------------------------------------------------------------------
         },
         malverk = {
-			config = {
-				text = {
-					'Đang thiết lập #1#'
-				}
-			}
-		},
-		texture_packs = {
-			default = {
-				name = 'Mặc Định',
-				text = {
-					'Skin của game gốc'
-				}
-			}
-		}
+            config = {
+                text = {
+                    'Đang thiết lập #1#'
+                }
+            }
+        },
+        texture_packs = {
+            default = {
+                name = 'Mặc Định',
+                text = {
+                    'Skin của game gốc'
+                }
+            }
+        }
     },
     UI = {},
     tutorial = {},
@@ -4274,7 +4274,7 @@ return {
             k_eroded_ex = "Đã Mòn Hết!",
             ----------------------------------------------- Phần dùng cho Steamodded -----------------------------------------------
             b_mods = 'Mod',
-			b_mods_cap = 'MOD',
+            b_mods_cap = 'MOD',
             b_modded_version = 'Bản cài Mod!',
             b_steamodded = 'Steamodded',
             b_open_mods_dir = 'Mở thư mục Mod',
@@ -4294,21 +4294,21 @@ return {
             b_vanilla_stake = 'Hiển Thị Cược Kiểu Vanilla',
             b_vanilla_stake_info = {'Bật/tắt chế độ hiển thị', 'cược trong T.Tin Trận Này'},
             b_author = 'Người tạo',
-			b_authors = 'Người tạo',
+            b_authors = 'Người tạo',
             b_unknown = 'Không rõ',
             b_lovely_mod = '(Mod Lovely thuần tuý) ',
             b_priority = 'Ưu Tiên: ',
             b_by = 'Bởi: ',
             b_config = "Tuỳ Chọn",
-			b_additions = 'Phần Thêm',
+            b_additions = 'Phần Thêm',
             b_stickers = 'Nhãn',
             b_achievements = "Thành Tựu",
             b_applies_stakes_1 = 'Áp dụng ',
-			b_applies_stakes_2 = '',
+            b_applies_stakes_2 = '',
             b_graphics_mipmap_level = "Kích cỡ Mipmap",
             b_browse = 'Duyệt',
-			b_search_prompt = 'Tìm mod',
-			b_search_button = 'Tìm kiếm',
+            b_search_prompt = 'Tìm mod',
+            b_search_button = 'Tìm kiếm',
             b_seeded_unlocks = 'Seed Mở Khoá',
             b_seeded_unlocks_info = 'Cho phép mở khoá và khám phá trong trận chơi bằng seed',
             ml_achievement_settings = {
@@ -4337,21 +4337,21 @@ return {
             run_select_stake_choice_random = 'Cược Ngẫu Nhiên',
             ---------------------------------------------- Phần dùng cho JokerDisplay ----------------------------------------------
             jdis_enabled = "Đã kích hoạt",
-			jdis_hide_by_default = "Ẩn mặc định",
-			jdis_hide_empty = "Ẩn trống",
+            jdis_hide_by_default = "Ẩn mặc định",
+            jdis_hide_empty = "Ẩn trống",
             jdis_shift_to_hide = "Shift + Chuột Phải để ẩn",
             jdis_joker_count = "Đặt số ô Joker phía trên display",
-			jdis_disable_collapse = "Tắt đóng sập",
-			jdis_disable_perishable = "Tắt Ngắn Hạn",
-			jdis_disable_rental = "Tắt Cho Thuê",
-			jdis_modifiers = "Phần Biến Đổi",
-			jdis_reminders = "Ghi Nhớ",
-			jdis_extras = "Thêm",
-			jdis_default_display = "Măc Định",
-			jdis_small_display = "Đóng Sập",
-			jdis_active = "Có hiệu lực!",
-			jdis_inactive = "Không hiệu lực",
-			jdis_all_suits = "Cả 4 chất",
+            jdis_disable_collapse = "Tắt đóng sập",
+            jdis_disable_perishable = "Tắt Ngắn Hạn",
+            jdis_disable_rental = "Tắt Cho Thuê",
+            jdis_modifiers = "Phần Biến Đổi",
+            jdis_reminders = "Ghi Nhớ",
+            jdis_extras = "Thêm",
+            jdis_default_display = "Măc Định",
+            jdis_small_display = "Đóng Sập",
+            jdis_active = "Có hiệu lực!",
+            jdis_inactive = "Không hiệu lực",
+            jdis_all_suits = "Cả 4 chất",
             ------------------------------------------------- Phần dùng cho Galdur -------------------------------------------------
             gald_master = "Bật Galdur",
             gald_use_desc = {
@@ -4404,16 +4404,16 @@ return {
             ----------------------------------------------- Phần dùng cho Incantation -----------------------------------------------
             incant_negatives_only = "Chỉ chồng lá Âm Bản",
             incant_stack_anything = "Cho phép chồng & chia bất kì lá tiêu thụ nào",
-			incant_unsafe_mode = 'Chế độ Không an toàn',
+            incant_unsafe_mode = 'Chế độ Không an toàn',
             ------------------------------------------------- Phần dùng cho Malverk -------------------------------------------------
             ["b_textures"] = 'Chọn Skin',
-			["b_deck_skins"] = 'Tuỳ Chỉnh Bài',
-			b_apply = 'ÁP DỤNG',
-			b_applied = 'ĐÃ ÁP DỤNG',
-			b_remove = 'LOẠI BỎ',
-			b_change = 'Các thay đổi',
-			malverk_low = 'THẤP NHẤT',
-			malverk_high = 'CAO NHẤT',
+            ["b_deck_skins"] = 'Tuỳ Chỉnh Bài',
+            b_apply = 'ÁP DỤNG',
+            b_applied = 'ĐÃ ÁP DỤNG',
+            b_remove = 'LOẠI BỎ',
+            b_change = 'Các thay đổi',
+            malverk_low = 'THẤP NHẤT',
+            malverk_high = 'CAO NHẤT',
             ----------------------------------- Phần dùng cho Nopeus - cần phiên bản đã Việt hoá -----------------------------------
             nopeus_ff = "Siêu Tốc",
             nopeus_popup = "Chữ Lá Bài Nổi Lên",
@@ -4491,7 +4491,7 @@ return {
             },
             ----------------------------------------------- Phần dùng cho Steamodded -----------------------------------------------
             c_types = '#1# Loại',
-			cashout_hidden = '...và thêm #1# mục nữa',
+            cashout_hidden = '...và thêm #1# mục nữa',
             a_xchips = "X#1# Chip",
             a_xchips_minus = "-X#1# Chip",
             a_score="#1# Điểm",

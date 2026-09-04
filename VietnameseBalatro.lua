@@ -54,8 +54,8 @@ end
 
 local vn_main_menu = Game.main_menu
 function Game:main_menu(change_context)
-    vn_main_menu(self, change_context)
-    if not SMODS then
+	vn_main_menu(self, change_context)
+	if not SMODS then
 		local version = VNBalatro.name.." v"..VNBalatro.version.." "..localize("vn_by").." HuyTheKiller"
 		UIBox{
 			definition =
@@ -74,7 +74,7 @@ function create_UIBox_main_menu_buttons()
 		local text = "Chọn tiếng Việt ở đây!"
 		local instruction_node = {n=G.UIT.R, config = {align = "cm", colour = G.C.CLEAR}, nodes={
 			{n=G.UIT.T, config={text = text, scale = 0.25, colour = G.C.UI.TEXT_LIGHT}},
-        }}
+		}}
 		table.insert(ret.nodes[2].nodes, 3, instruction_node)
 	end
 	return ret
