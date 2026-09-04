@@ -81,22 +81,53 @@ end
 
 -- Handle loading and saving config
 function VNBalatro.save_config()
-    local serialized = "return { input_method = "..tostring(VNBalatro.config.input_method).." }"
-    love.filesystem.write("config/VNBalatro.lua", serialized)
+	local function str_pack(data, recursive)
+		local ret_str = (recursive and "" or "return ").."{"
+		for k, v in pairs(data or {}) do
+			local tk, tv = type(k), type(v)
+			assert((tk ~= "table"), "Data table cannot have an table as a key reference")
+			if tk == "string" then k = '['..string.format("%q", k)..']'
+			else k = "["..k.."]" end
+			if tv == "table" then v = str_pack(v, true)
+			elseif tv == "string" then v = string.format("%q", v)
+			elseif tv == "boolean" then v = v and "true" or "false" end
+			ret_str = ret_str..k.."="..v..","
+		end
+		return ret_str.."}"
+	end
+	local success = pcall(function()
+		VNBalatro.nativefs.createDirectory("config")
+		assert(VNBalatro.config and next(VNBalatro.config))
+		VNBalatro.nativefs.write("config/VNBalatro.jkr", str_pack(VNBalatro.config))
+	end)
+	return success
 end
 
 function VNBalatro.load_config()
-    if love.filesystem.exists("config/VNBalatro.lua") then
-        local str = ""
-        for line in love.filesystem.lines("config/VNBalatro.lua") do
-            str = str..line
-        end
-        return loadstring(str)()
-    else
-        return {
-            input_method = 3,
-        }
-    end
+	local success, config = pcall(function()
+		return setfenv(load(VNBalatro.nativefs.read("config/VNBalatro.jkr")), {})()
+	end)
+	if not success or type(config) ~= "table" then config = {} end
+	VNBalatro.config = VNBalatro.default_config()
+	local function insert_saved_config(saved, default)
+		for sk, sv in pairs(saved) do
+			local sv_type, dv_type = type(sv), type(default[sk])
+			if not default[sk] then
+				default[sk] = sv
+			elseif sv_type ~= dv_type then
+			elseif sv_type == "table" and dv_type == "table" then
+				insert_saved_config(sv, default[sk])
+			elseif sv ~= default[sk] then
+				default[sk] = sv
+			end
+		end
+	end
+	insert_saved_config(config, VNBalatro.config)
+	return VNBalatro.config
 end
 
-if not VNBalatro.config then VNBalatro.config = VNBalatro.load_config() end
+function VNBalatro.default_config()
+	return {input_method = 3}
+end
+
+if not VNBalatro.config then VNBalatro.load_config() end
