@@ -49,9 +49,9 @@ Note that this project is independent of [Kanbei's mod](https://github.com/Kanbe
 - Starting from v1.4.0, VietnameseBalatro supports installation without Steamodded dependency.
 - You can view the instructions to install Lovely [here](https://github.com/ethangreen-dev/lovely-injector?tab=readme-ov-file#manual-installation).
 
-## Prepare Steamodded 1.0.0 (optional)
+## Prepare Steamodded (optional)
 - [Kanbei's mod](https://github.com/Kanbei-Kikuchiyo/balatro-vietnamese-translation) does not provide instructions for any other operating systems outside Windows.
-- You can view the instructions to install Steamodded 1.0.0 [here](https://docs.smods.dev).
+- You can view the instructions to install Steamodded [here](https://docs.smods.dev).
 
 ## Manual installation
 - Click [here](https://github.com/HuyTheKiller/VietnameseBalatro/releases/latest) to head to the Release page of the latest version then click on VietnameseBalatro.zip to download it.
