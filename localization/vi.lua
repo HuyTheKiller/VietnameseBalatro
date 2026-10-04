@@ -4328,7 +4328,7 @@ return {
             run_select_locked_stake_and = " và ",
             run_select_nothing = 'Nothing',
             run_select_selected = 'ĐÃ CHỌN',
-            run_select_quick_start = 'Bắt Đầu Nhanh',
+            run_select_quick_start = 'Trận Trước Đó',
             run_select_play = 'Chơi',
             run_setup_enable_seed = 'Bật Seed',
             run_select_deck_choice = 'Chọn Bộ Bài',
